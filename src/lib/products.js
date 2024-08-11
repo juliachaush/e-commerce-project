@@ -1,4 +1,7 @@
-const apiUrl = process.env.API_PATH;
+const apiUrl =
+  process.env.NODE_ENV === "development"
+    ? process.env.NEXT_PUBLIC_DEV_API_PATH
+    : process.env.NEXT_PUBLIC_PROD_API_PATH;
 
 async function fetchProducts() {
   try {
