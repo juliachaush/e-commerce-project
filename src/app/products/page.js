@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import fetchProducts from "@/src/lib/products";
-import ProductCard from "@/src/components/ProductCard";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -19,7 +18,6 @@ function Products() {
 
   return (
     <>
-      {" "}
       <h1>Products page</h1>
       {products && products.length > 0
         ? products.map((item) => (

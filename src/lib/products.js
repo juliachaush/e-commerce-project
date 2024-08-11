@@ -1,6 +1,6 @@
 async function fetchProducts() {
   try {
-    const response = await fetch("http://localhost:3001/api/products", {
+    const response = await fetch("/api/products", {
       mode: "no-cors",
     });
 
