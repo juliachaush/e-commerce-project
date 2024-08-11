@@ -1,5 +1,4 @@
-const apiUrl = process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL;
-console.log(apiUrl);
+const apiUrl = process.env.API_URL;
 
 async function fetchProducts() {
   try {
