@@ -1,9 +1,9 @@
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const apiUrl = process.env.NEXT_PUBLIC_VERCEL_URL;
 console.log(apiUrl);
 
 async function fetchProducts() {
   try {
-    const response = await fetch(`${apiUrl}/products`, {
+    const response = await fetch(`${apiUrl}/api/products`, {
       mode: "no-cors",
     });
 
