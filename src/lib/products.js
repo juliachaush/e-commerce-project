@@ -1,15 +1,13 @@
 async function fetchProducts() {
   try {
-    const response = await fetch("/api/products", {
+    const response = await fetch(`${process.env.API_PATH}/api/products`, {
       mode: "no-cors",
     });
 
-    // Проверяем, успешен ли запрос
     if (!response.ok) {
       throw new Error(`Ошибка: ${response.status}`);
     }
 
-    // Получаем данные в формате JSON
     const data = await response.json();
     console.log(data);
 
