@@ -21,7 +21,16 @@ function Products() {
     <>
       {" "}
       <h1>Products page</h1>
-      {products.length > 0 ? <ProductCard products={products} /> : ""}
+      {products && products.length > 0
+        ? products.map((item) => (
+            <li key={item.product_id}>
+              <Link href={`/products/${item.product_id}`}>
+                <h1>{item.product_title}</h1>
+                <p>{item.product_price}</p>
+              </Link>
+            </li>
+          ))
+        : ""}
     </>
   );
 }
