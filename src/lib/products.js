@@ -1,8 +1,8 @@
-const apiUrl = process.env.API_URL;
+const apiUrl = process.env.API_PATH;
 
 async function fetchProducts() {
   try {
-    const response = await fetch(`${apiUrl}/api/products`, {
+    const response = await fetch(`${apiUrl}/products`, {
       mode: "no-cors",
     });
 
