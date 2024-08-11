@@ -1,4 +1,6 @@
+const { default: ProductCard } = require("@/src/components/ProductCard");
+
 function Product() {
-  return <h1>Product</h1>;
+  return <ProductCard />;
 }
 export default Product;
