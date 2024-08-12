@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Base Code shop",
+  title: "BaseCode shop",
   description:
     "Base Code is a brand of exceptional things produced on the basis of traditional ethnic cultures. Each collection is a unique",
 };
