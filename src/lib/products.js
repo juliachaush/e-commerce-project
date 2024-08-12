@@ -1,8 +1,9 @@
-const apiUrl = process.env.API_PATH;
+// const apiUrl = process.env.API_PATH;
+const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL || "http://localhost:3001";
 
 async function fetchProducts() {
   try {
-    const response = await fetch(`${apiUrl}/products`, {
+    const response = await fetch(`${baseUrl}/api/products`, {
       mode: "no-cors",
     });
 
