@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  //   env: {
-  //     API_PATH: process.env.API_PATH,
-  //   },
+  images: {
+    domains: ["oct4nzh6qckbwkjr.public.blob.vercel-storage.com"],
+  },
 };
 
 export default nextConfig;
