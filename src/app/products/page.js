@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import fetchProducts from "@/src/lib/products";
-import ProductCard from "@/src/components/ProductCard";
+import { ProductCard } from "@/src/components/ProductCard";
 
 function Products() {
   const [products, setProducts] = useState([]);

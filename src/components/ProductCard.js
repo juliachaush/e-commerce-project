@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-function ProductCard({ products }) {
+const ProductCard = ({ products }) => {
   return (
     <ul>
       {products.map((item) => (
@@ -22,5 +22,5 @@ function ProductCard({ products }) {
       ))}
     </ul>
   );
-}
-export default ProductCard;
+};
+export { ProductCard };
