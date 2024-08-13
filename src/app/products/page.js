@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import fetchProducts from "@/src/lib/products";
 import { ProductCard } from "@/src/components/ProductCard";
+import { Breadcrumbs } from "@/src/components/Breadcrumbs";
 
-function Products() {
+function ProductsPage() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -16,12 +17,15 @@ function Products() {
     loadProducts();
   }, []);
 
+  const breadCrumbs = [{ name: "home", url: "/" }];
+
   return (
     <>
       <h1>Products page</h1>
+      <Breadcrumbs breadCrumbs={breadCrumbs} />
       <ProductCard products={products} />
     </>
   );
 }
 
-export default Products;
+export default ProductsPage;

@@ -3,8 +3,9 @@ import fetchProducts from "@/src/lib/products";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
+import { Breadcrumbs } from "@/src/components/Breadcrumbs";
 
-function Product() {
+function ProductPage() {
   const params = useParams();
   const [products, setProducts] = useState([]);
 
@@ -15,10 +16,16 @@ function Product() {
     }
 
     loadProducts();
-  }, [params]);
+  }, []);
+
+  const breadCrumbs = [
+    { name: "home", url: "/" },
+    { name: "products", url: "/products" },
+  ];
 
   return (
     <>
+      <Breadcrumbs breadCrumbs={breadCrumbs} />
       <ul>
         {products.map((item) =>
           item.product_id === Number(params.slug) ? (
@@ -40,4 +47,4 @@ function Product() {
     </>
   );
 }
-export default Product;
+export default ProductPage;
