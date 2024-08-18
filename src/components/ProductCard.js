@@ -24,12 +24,6 @@ const ProductCards = () => {
       {products.map((item) => (
         <li key={item.product_id}>
           <Link href={`/products/${item.product_id}`}>
-            {/* <Link
-            href={{
-              pathname: "/products/${item.product_id}",
-              query: { name: "list" },
-            }}
-          > */}
             <Image
               src={item.image_url}
               width={200}
