@@ -33,22 +33,18 @@ function ProductPage() {
       <Breadcrumbs breadCrumbs={breadCrumbs} />
 
       <ul>
-        {product.map((item) =>
-          item.product_id === Number(params.slug) ? (
-            <li key={item.product_id}>
-              <h1>{item.product_title}</h1>
-              <p>{item.product_price}</p>
-              <Image
-                src={item.image_url}
-                width={500}
-                height={500}
-                alt={item.product_title}
-              />
-            </li>
-          ) : (
-            ""
-          )
-        )}
+        {product.map((item) => (
+          <li key={item.product_id}>
+            <h1>{item.product_title}</h1>
+            <p>{item.product_price}</p>
+            <Image
+              src={item.image_url}
+              width={500}
+              height={500}
+              alt={item.product_title}
+            />
+          </li>
+        ))}
       </ul>
     </>
   );
