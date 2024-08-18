@@ -18,10 +18,6 @@ const ProductCards = () => {
     loadProducts();
   }, []);
 
-  if (!products) {
-    return <div>Failed to load products</div>;
-  }
-
   return (
     <ul>
       {products.map((item) => (
