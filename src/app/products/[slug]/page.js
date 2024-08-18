@@ -25,6 +25,9 @@ function ProductPage() {
     { name: "products", url: "/products" },
   ];
 
+  if (!product) {
+    return <div>Failed to load products</div>;
+  }
   return (
     <>
       <Breadcrumbs breadCrumbs={breadCrumbs} />

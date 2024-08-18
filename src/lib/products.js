@@ -30,6 +30,7 @@ const fetchProductById = async (id) => {
 
     const data = await response.json();
     console.log(data);
+
     return data;
   } catch (error) {
     console.error("Ошибка при запросе:", error);

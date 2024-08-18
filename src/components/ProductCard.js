@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Button } from "./Button";
 import { useEffect, useState } from "react";
 import { fetchProducts, fetchProduct } from "@/src/lib/products";
-// import { Query } from "@vercel/postgres";
 
 const ProductCards = () => {
   const [products, setProducts] = useState([]);
@@ -18,6 +17,10 @@ const ProductCards = () => {
 
     loadProducts();
   }, []);
+
+  if (!products) {
+    return <div>Failed to load products</div>;
+  }
 
   return (
     <ul>
