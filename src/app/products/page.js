@@ -3,7 +3,7 @@
 import { Suspense } from "react";
 import { ProductCards } from "@/src/components/ProductCard";
 import { Breadcrumbs } from "@/src/components/Breadcrumbs";
-import { Loading } from "../loading";
+import Loading from "../loading";
 import MainHeader from "@/src/components/MainHeader";
 
 function ProductsPage() {
