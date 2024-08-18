@@ -18,9 +18,10 @@ const fetchProducts = async () => {
   }
 };
 
+// encodeURIComponent
 const fetchProductById = async (id) => {
   try {
-    const response = await fetch(`/api/products?id=${encodeURIComponent(id)}`, {
+    const response = await fetch(`/api/products?id=${id}`, {
       mode: "no-cors",
       method: "GET",
     });
