@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 
 import "./globals.css";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,7 +15,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <Suspense fallback={<Loading />}>
+        <body className={`${inter.className} bg-gray-950`}>{children}</body>
+      </Suspense>
     </html>
   );
 }

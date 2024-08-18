@@ -1,8 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind variants;
 
-:root {
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+}
+
+/* .btn-blue {
+  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+} */
+
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -30,4 +41,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */

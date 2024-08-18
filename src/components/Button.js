@@ -4,7 +4,7 @@
 // Button.displayName = "Button";
 
 const Button = () => {
-  return <button>Add to cart</button>;
+  return <button className="text-white font-bold">Add to cart</button>;
 };
 
 export { Button };

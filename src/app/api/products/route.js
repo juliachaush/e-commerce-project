@@ -1,5 +1,6 @@
 import { sql } from "@vercel/postgres";
 
+//WORKING GET
 export async function GET(request) {
   const product = await sql`select * from products;`;
 

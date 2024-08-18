@@ -1,29 +1,26 @@
-"use client";
+// "use client";
 
-import { useEffect, useState } from "react";
-import fetchProducts from "@/src/lib/products";
-import { ProductCard } from "@/src/components/ProductCard";
+import { Suspense } from "react";
+import { ProductCards } from "@/src/components/ProductCard";
 import { Breadcrumbs } from "@/src/components/Breadcrumbs";
+import { Loading } from "../loading";
+import MainHeader from "@/src/components/MainHeader";
 
 function ProductsPage() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    async function loadProducts() {
-      const data = await fetchProducts();
-      setProducts(data);
-    }
-
-    loadProducts();
-  }, []);
-
   const breadCrumbs = [{ name: "home", url: "/" }];
 
   return (
     <>
-      <h1>Products page</h1>
+      <MainHeader
+        path={{ products: "/products", contacts: "/contacts" }}
+        linkName={{ products: "catalog", contacts: "contacts" }}
+      />
+
       <Breadcrumbs breadCrumbs={breadCrumbs} />
-      <ProductCard products={products} />
+      <h2 className="text-white">Products page</h2>
+      <Suspense fallback={<Loading />}>
+        <ProductCards />
+      </Suspense>
     </>
   );
 }

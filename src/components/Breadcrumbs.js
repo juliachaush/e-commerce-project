@@ -7,7 +7,9 @@ const Breadcrumbs = ({ breadCrumbs }) => {
         <ol>
           {breadCrumbs.map((breadCrumb) => (
             <li key={breadCrumb.name}>
-              <Link href={breadCrumb.url}>{breadCrumb.name}</Link>
+              <Link href={breadCrumb.url} className="text-white">
+                {breadCrumb.name}
+              </Link>
             </li>
           ))}
         </ol>
