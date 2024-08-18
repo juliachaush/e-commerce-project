@@ -1,6 +1,6 @@
 "use client";
 import { fetchProductById } from "@/src/lib/products";
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { Breadcrumbs } from "@/src/components/Breadcrumbs";
