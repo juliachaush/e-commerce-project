@@ -1,5 +1,3 @@
-// "use client";
-
 import { Suspense } from "react";
 import { ProductCards } from "@/src/components/ProductCard";
 import { Breadcrumbs } from "@/src/components/Breadcrumbs";

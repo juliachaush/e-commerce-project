@@ -1,36 +1,38 @@
 const fetchProducts = async () => {
   try {
     const response = await fetch(`/api/products`, {
-      mode: "no-cors",
       method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
 
     if (!response.ok) {
-      throw new Error(`Ошибка: ${response.status}`);
+      throw new Error(`Error: ${response.status}`);
     }
 
     const data = await response.json();
-    console.log(data);
 
     return data;
   } catch (error) {
-    console.error("Ошибка при запросе:", error);
+    console.error("Error during request:", error);
+    return null;
   }
 };
 
-// encodeURIComponent
 const fetchProductById = async (id) => {
   try {
-    const response = await fetch(`/api/products?id=${id}`, {
-      mode: "no-cors",
+    const response = await fetch(`/api/products/${id}`, {
       method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
     if (!response.ok) {
       throw new Error(`Ошибка: ${response.status}`);
     }
 
     const data = await response.json();
-    console.log(data);
 
     return data;
   } catch (error) {

@@ -4,20 +4,27 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { Breadcrumbs } from "@/src/components/Breadcrumbs";
+import MainHeader from "@/src/components/MainHeader";
 
 function ProductPage() {
   const params = useParams();
-  const id = params.slug;
+  const id = params.id;
 
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    async function loadProducts(id) {
-      const data = await fetchProductById(id);
-      setProduct(data);
+    async function loadProduct() {
+      if (id) {
+        try {
+          const data = await fetchProductById(id);
+          setProduct(data);
+        } catch (error) {
+          console.error("Failed to load product:", error);
+        }
+      }
     }
 
-    loadProducts();
+    loadProduct();
   }, [id]);
 
   const breadCrumbs = [
@@ -27,6 +34,10 @@ function ProductPage() {
 
   return (
     <>
+      <MainHeader
+        path={{ products: "/products", contacts: "/contacts" }}
+        linkName={{ products: "catalog", contacts: "contacts" }}
+      />
       <Breadcrumbs breadCrumbs={breadCrumbs} />
 
       <ul>
