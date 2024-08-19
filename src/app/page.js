@@ -5,7 +5,7 @@ export default function Home() {
     <main>
       <MainHeader
         path={{ products: "/products", contacts: "/contacts" }}
-        linkName={{ products: "catalog", contacts: "contacts" }}
+        linkName={{ products: "Catalog", contacts: "Contacts" }}
       />
     </main>
   );

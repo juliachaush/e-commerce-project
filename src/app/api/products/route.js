@@ -1,10 +1,10 @@
 import { sql } from "@vercel/postgres";
 
 export async function GET(request) {
-  const product = await sql`select * from products;`;
+  const products = await sql`select * from products;`;
 
   return new Response(
-    JSON.stringify(product.rows.length > 0 ? product.rows : null),
+    JSON.stringify(products.rows.length > 0 ? products.rows : null),
     {
       headers: {
         "Content-Type": "application/json",

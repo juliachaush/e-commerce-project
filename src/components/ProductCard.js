@@ -37,7 +37,7 @@ const ProductCards = () => {
               <h1>{item.product_title}</h1>
               <p>{item.product_price}</p>
             </Link>
-            <Button />
+            <Button name="Add to Cart" />
           </li>
         ))
       ) : (

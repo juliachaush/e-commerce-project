@@ -3,8 +3,8 @@
 // };
 // Button.displayName = "Button";
 
-const Button = () => {
-  return <button className="text-white font-bold">Add to cart</button>;
+const Button = ({ name }) => {
+  return <button className="text-white font-bold">{name}</button>;
 };
 
 export { Button };
