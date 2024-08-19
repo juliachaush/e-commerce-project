@@ -23,21 +23,22 @@ const ProductCards = () => {
   }, []);
 
   return (
-    <ul>
+    <ul className="flex flex-row ">
       {products && products.length > 0 ? (
         products.map((item) => (
-          <li key={item.product_id}>
+          <li key={item.product_id} className="lg:p-4 md:w-full  mt-8 ">
             <Link href={`/products/${item.product_id}`}>
               <Image
+                className="w-full"
                 src={item.image_url}
-                width={200}
-                height={200}
+                width={280}
+                height={280}
                 alt={item.product_title}
               />
-              <h1>{item.product_title}</h1>
-              <p>{item.product_price}</p>
+              <p>{item.product_title}</p>
+              <p className="pb-2">{item.product_price}$</p>
             </Link>
-            <Button name="Add to Cart" />
+            <Button name="ADD TO CART" />
           </li>
         ))
       ) : (

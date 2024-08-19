@@ -11,11 +11,11 @@ function ProductsPage() {
     <>
       <MainHeader
         path={{ products: "/products", contacts: "/contacts" }}
-        linkName={{ products: "catalog", contacts: "contacts" }}
+        linkName={{ products: "Catalog", contacts: "Contacts" }}
+        cart={{ path: "/cart", name: "Cart" }}
       />
 
       <Breadcrumbs breadCrumbs={breadCrumbs} />
-      <h2 className="text-white">Products page</h2>
       <Suspense fallback={<Loading />}>
         <ProductCards />
       </Suspense>

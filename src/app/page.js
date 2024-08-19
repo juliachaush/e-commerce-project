@@ -6,6 +6,7 @@ export default function Home() {
       <MainHeader
         path={{ products: "/products", contacts: "/contacts" }}
         linkName={{ products: "Catalog", contacts: "Contacts" }}
+        cart={{ path: "/cart", name: "Cart" }}
       />
     </main>
   );

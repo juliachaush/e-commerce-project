@@ -4,7 +4,7 @@
 // Button.displayName = "Button";
 
 const Button = ({ name }) => {
-  return <button className="text-white font-bold">{name}</button>;
+  return <button className="text-black  cursor-pointer">{name}</button>;
 };
 
 export { Button };

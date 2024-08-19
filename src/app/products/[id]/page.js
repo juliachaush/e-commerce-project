@@ -36,21 +36,23 @@ function ProductPage() {
     <>
       <MainHeader
         path={{ products: "/products", contacts: "/contacts" }}
-        linkName={{ products: "catalog", contacts: "contacts" }}
+        linkName={{ products: "Catalog", contacts: "Contacts" }}
+        cart={{ path: "/cart", name: "Cart" }}
       />
       <Breadcrumbs breadCrumbs={breadCrumbs} />
 
       <ul>
         {product.map((item) => (
           <li key={item.product_id}>
-            <h1>{item.product_title}</h1>
-            <p>{item.product_price}</p>
             <Image
               src={item.image_url}
               width={500}
               height={500}
               alt={item.product_title}
             />
+
+            <h1>{item.product_title}</h1>
+            <p>{item.product_price}</p>
           </li>
         ))}
       </ul>
