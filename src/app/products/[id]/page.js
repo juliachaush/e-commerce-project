@@ -5,6 +5,10 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { Breadcrumbs } from "@/src/components/Breadcrumbs";
 import MainHeader from "@/src/components/MainHeader";
+import { formatCurrency } from "@/src/lib/formatCurrency";
+
+const userLocale = "en-US";
+const userCurrency = "USD";
 
 function ProductPage() {
   const params = useParams();
@@ -52,7 +56,9 @@ function ProductPage() {
             />
 
             <h1>{item.product_title}</h1>
-            <p>{item.product_price}</p>
+            <p>
+              {formatCurrency(item.product_price, userLocale, userCurrency)}
+            </p>
           </li>
         ))}
       </ul>

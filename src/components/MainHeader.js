@@ -6,7 +6,7 @@ function MainHeader({ path, linkName, cart }) {
   return (
     <>
       <div className=" flex flex-row bg-gray-950 text-white w-full  justify-center text-sm  ">
-        <p> Free shipping from 50$</p>
+        <p> Free shipping from $50</p>
       </div>
       <div className="flex flex-row bg-white text-black mb-2 items-center spa justify-between border-b border-gray-950 tracking-widest ">
         <div className="flex flex-row list-none w-2  ">

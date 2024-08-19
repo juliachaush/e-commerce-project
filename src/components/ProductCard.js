@@ -5,6 +5,10 @@ import Image from "next/image";
 import { Button } from "./Button";
 import { useEffect, useState } from "react";
 import { fetchProducts } from "@/src/lib/products";
+import { formatCurrency } from "../lib/formatCurrency";
+
+const userLocale = "en-US";
+const userCurrency = "USD";
 
 const ProductCards = () => {
   const [products, setProducts] = useState([]);
@@ -36,7 +40,9 @@ const ProductCards = () => {
                 alt={item.product_title}
               />
               <p>{item.product_title}</p>
-              <p className="pb-2">{item.product_price}$</p>
+              <p className="pb-2 ">
+                {formatCurrency(item.product_price, userLocale, userCurrency)}
+              </p>
             </Link>
             <Button name="ADD TO CART" />
           </li>

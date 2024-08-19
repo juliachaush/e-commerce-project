@@ -22,6 +22,9 @@ export default function Home() {
           className="mt-50"
         />
       </div>
+      <div className="absolute inset-0 flex items-center text-white justify-center text-center tracking-widest ">
+        <p>SPRING/SUMMER 2024</p>
+      </div>
     </main>
   );
 }
