@@ -3,12 +3,17 @@ import { fetchProductById } from "@/src/lib/products";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import { Breadcrumbs } from "@/src/components/Breadcrumbs";
-import MainHeader from "@/src/components/MainHeader";
+import { Breadcrumbs } from "@/src/components/breadcrumbs";
+import MainHeader from "@/src/components/mainHeader";
 import { formatCurrency } from "@/src/lib/formatCurrency";
 
 const userLocale = "en-US";
 const userCurrency = "USD";
+
+const breadCrumbs = [
+  { name: "home", url: "/" },
+  { name: "products", url: "/products" },
+];
 
 function ProductPage() {
   const params = useParams();
@@ -30,11 +35,6 @@ function ProductPage() {
 
     loadProduct();
   }, [id]);
-
-  const breadCrumbs = [
-    { name: "home", url: "/" },
-    { name: "products", url: "/products" },
-  ];
 
   return (
     <>

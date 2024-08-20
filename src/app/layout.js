@@ -15,9 +15,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Suspense fallback={<Loading />}>
-        <body className={`${inter.className} bg-gray-100`}>{children}</body>
-      </Suspense>
+      {/* <Suspense fallback={<Loading />}> */}
+      <body className={`${inter.className} bg-gray-100`}>{children}</body>
+      {/* </Suspense> */}
     </html>
   );
 }
