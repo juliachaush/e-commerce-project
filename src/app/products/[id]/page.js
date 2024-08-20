@@ -3,7 +3,7 @@ import { fetchProductById } from "@/src/lib/products";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import { Breadcrumbs } from "@/src/components/BreadCrumbs.js";
+// import { Breadcrumbs } from "@/src/components/BreadCrumbs.js";
 import MainHeader from "@/src/components/MainHeader";
 import { formatCurrency } from "@/src/lib/formatCurrency";
 
@@ -43,7 +43,7 @@ function ProductPage() {
         linkName={{ products: "Catalog", contacts: "Contacts" }}
         cart={{ path: "/cart", name: "Cart" }}
       />
-      <Breadcrumbs breadCrumbs={breadCrumbs} />
+      {/* <Breadcrumbs breadCrumbs={breadCrumbs} /> */}
 
       <ul>
         {product.map((item) => (
