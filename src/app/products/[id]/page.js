@@ -3,8 +3,8 @@ import { fetchProductById } from "@/src/lib/products";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import { Breadcrumbs } from "@/src/components/breadcrumbs";
-import MainHeader from "@/src/components/mainHeader";
+import { Breadcrumbs } from "@/src/components/BreadCrumbs";
+import MainHeader from "@/src/components/MainHeader";
 import { formatCurrency } from "@/src/lib/formatCurrency";
 
 const userLocale = "en-US";

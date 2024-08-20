@@ -1,15 +1,15 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { ProductCards } from "@/src/components/productCard";
-import { Breadcrumbs } from "@/src/components/breadcrumbs";
-import MainHeader from "@/src/components/mainHeader";
+import { ProductCards } from "../../components/ProductCard";
+import { Breadcrumbs } from "../../components/BreadCrumbs";
+import MainHeader from "../../components/MainHeader";
 import { fetchProducts } from "@/src/lib/products";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "@/src/components/dropdownMenu";
+} from "@/src/components/DropdownMenu";
 import { ChevronDown, Filter } from "lucide-react";
 import { SORT_OPTIONS } from "@/src/lib/const";
 import { cn } from "@/src/lib/utils";

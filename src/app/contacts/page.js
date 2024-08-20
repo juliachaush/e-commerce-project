@@ -1,4 +1,4 @@
-import MainHeader from "@/src/components/mainHeader";
+import MainHeader from "@/src/components/MainHeader";
 
 function Contacts() {
   return (

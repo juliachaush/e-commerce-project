@@ -1,4 +1,4 @@
-import MainHeader from "../components/mainHeader";
+import MainHeader from "../components/MainHeader";
 import mainPhoto from "../assets/main.jpg";
 import Image from "next/image";
 
