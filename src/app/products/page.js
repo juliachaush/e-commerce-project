@@ -9,11 +9,11 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "@/src/components/DropdownMenu";
+} from "../../components/DropdownMenu";
 import { ChevronDown, Filter } from "lucide-react";
 import { SORT_OPTIONS } from "@/src/lib/const";
 import { cn } from "@/src/lib/utils";
-import { SORT_VALUES } from "@/src/lib/const";
+import { SORT_VALUES } from "../../lib/const";
 
 const breadCrumbs = [{ name: "home", url: "/" }];
 

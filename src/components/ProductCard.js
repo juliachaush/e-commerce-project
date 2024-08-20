@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button } from "./Button";
 
 import { formatCurrency } from "../lib/formatCurrency";
-import ProductSkeleton from "./ProductSkeleton";
+import { ProductSkeleton } from "./ProductSkeleton";
 
 const userLocale = "en-US";
 const userCurrency = "USD";

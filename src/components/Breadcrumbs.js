@@ -1,7 +1,7 @@
 import Link from "next/link";
 import LeftArrow from "../assets/left-arrow.svg";
 
-const Breadcrumbs = ({ breadCrumbs }) => {
+export const Breadcrumbs = ({ breadCrumbs }) => {
   return (
     <section>
       <div className="flex flex-row pl-4 ">
@@ -23,5 +23,3 @@ const Breadcrumbs = ({ breadCrumbs }) => {
     </section>
   );
 };
-
-export { Breadcrumbs };
