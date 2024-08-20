@@ -5,11 +5,11 @@ import { ProductCards } from "../../components/ProductCard";
 import { Breadcrumbs } from "@/src/components/BreadCrumbs";
 import MainHeader from "../../components/MainHeader";
 import { fetchProducts } from "@/src/lib/products";
-// import {
-//   DropdownMenu,
-//   DropdownMenuContent,
-//   DropdownMenuTrigger,
-// } from "@/src/components/DropdownMenu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/src/components/DropdownMenu";
 import { ChevronDown, Filter } from "lucide-react";
 import { SORT_OPTIONS } from "@/src/lib/const";
 import { cn } from "@/src/lib/utils";
@@ -76,7 +76,7 @@ function ProductsPage() {
       <div className="flex items-center justify-between ">
         <Breadcrumbs breadCrumbs={breadCrumbs} />
         <div className="flex items-center ">
-          {/* <DropdownMenu>
+          <DropdownMenu>
             <DropdownMenuTrigger className="group inline-flex justify-center text-sm text-gray-700 hover:text-gray-900 pr-8">
               Sort
               <ChevronDown className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500" />
@@ -97,7 +97,7 @@ function ProductsPage() {
                 </button>
               ))}
             </DropdownMenuContent>
-          </DropdownMenu> */}
+          </DropdownMenu>
 
           <button className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden">
             <Filter className="h-5 w-5" />

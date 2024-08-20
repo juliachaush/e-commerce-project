@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button } from "./Button";
 
 import { formatCurrency } from "../lib/formatCurrency";
-// import { ProductSkeleton } from "./ProductSkeleton";
+import { ProductSkeleton } from "./ProductSkeleton";
 
 const userLocale = "en-US";
 const userCurrency = "USD";
@@ -30,10 +30,9 @@ const ProductCards = ({ products }) => {
               <Button name="ADD TO CART" />
             </li>
           ))
-        : null}
+        : new Array(5).fill(null).map((_, i) => <ProductSkeleton key={i} />)}
     </ul>
   );
 };
 
 export { ProductCards };
-// new Array(5).fill(null).map((_, i) => <ProductSkeleton key={i} />)
