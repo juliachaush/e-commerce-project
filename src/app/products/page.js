@@ -2,14 +2,14 @@
 
 import { useState, useEffect, useRef } from "react";
 import { ProductCards } from "../../components/ProductCard";
-import { Breadcrumbs } from "@/src/components/BreadCrumbs";
+import { Breadcrumbs } from "@/src/components/BreadCrumbs.js";
 import MainHeader from "../../components/MainHeader";
 import { fetchProducts } from "@/src/lib/products";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "@/src/components/DropdownMenu";
+} from "@/src/components/DropdownMenu.js";
 import { ChevronDown, Filter } from "lucide-react";
 import { SORT_OPTIONS } from "@/src/lib/const";
 import { cn } from "@/src/lib/utils";
