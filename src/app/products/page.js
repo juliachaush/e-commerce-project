@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { ProductCards } from "../../components/ProductCard";
-// import { Breadcrumbs } from "@/src/components/BreadCrumbs";
+import { Breadcrumbs } from "@/src/components/BreadCrumbs";
 import MainHeader from "../../components/MainHeader";
 import { fetchProducts } from "@/src/lib/products";
 // import {
@@ -74,7 +74,7 @@ function ProductsPage() {
         cart={{ path: "/cart", name: "Cart" }}
       />
       <div className="flex items-center justify-between ">
-        {/* <Breadcrumbs breadCrumbs={breadCrumbs} /> */}
+        <Breadcrumbs breadCrumbs={breadCrumbs} />
         <div className="flex items-center ">
           {/* <DropdownMenu>
             <DropdownMenuTrigger className="group inline-flex justify-center text-sm text-gray-700 hover:text-gray-900 pr-8">
