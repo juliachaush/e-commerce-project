@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+
 import { ProductCards } from "../../components/ProductCard";
 import { Breadcrumbs } from "@/src/components/BreadCrumbs";
 import MainHeader from "../../components/MainHeader";
@@ -14,6 +15,7 @@ import { ChevronDown, Filter } from "lucide-react";
 import { SORT_OPTIONS } from "@/src/lib/const";
 import { cn } from "@/src/lib/utils";
 import { SORT_VALUES } from "../../lib/const";
+import { Footer } from "@/src/components/Footer";
 
 const breadCrumbs = [{ name: "home", url: "/" }];
 
@@ -106,8 +108,26 @@ function ProductsPage() {
       </div>
 
       <ProductCards products={products} />
+      <Footer />
     </>
   );
 }
 
 export default ProductsPage;
+
+// import ProductsPageClient from "./ProductsPageClient";
+// import { fetchProducts } from "@/src/lib/products";
+
+// export default async function ProductPage() {
+//   // Fetch data on the server
+
+//   try {
+//     const res = await fetchProducts();
+//     const fetchedProducts = await res.json();
+//     return <ProductsPageClient fetchedProducts={fetchedProducts} />;
+//   } catch (error) {
+//     console.error("Failed to load products:", error);
+//   }
+// }
+
+// Pass the fetched data as props to the Client Component

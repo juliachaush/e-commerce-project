@@ -1,4 +1,5 @@
 import MainHeader from "@/src/components/MainHeader";
+import { Footer } from "@/src/components/Footer";
 
 function Contacts() {
   return (
@@ -10,6 +11,8 @@ function Contacts() {
       />
 
       <h1>Contacts</h1>
+
+      <Footer />
     </>
   );
 }

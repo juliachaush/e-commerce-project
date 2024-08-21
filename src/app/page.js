@@ -1,6 +1,7 @@
 import MainHeader from "../components/MainHeader";
 import mainPhoto from "../assets/main.jpg";
 import Image from "next/image";
+import { Footer } from "../components/Footer";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
       <div className="absolute inset-0 flex items-center text-white justify-center text-center tracking-widest ">
         <p>SPRING/SUMMER 2024</p>
       </div>
+      <Footer />
     </main>
   );
 }

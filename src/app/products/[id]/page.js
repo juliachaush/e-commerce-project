@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { Breadcrumbs } from "@/src/components/BreadCrumbs";
 import MainHeader from "@/src/components/MainHeader";
 import { formatCurrency } from "@/src/lib/formatCurrency";
+import { Footer } from "@/src/components/Footer";
 
 const userLocale = "en-US";
 const userCurrency = "USD";
@@ -62,6 +63,7 @@ function ProductPage() {
           </li>
         ))}
       </ul>
+      <Footer />
     </>
   );
 }
