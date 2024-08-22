@@ -20,10 +20,11 @@ export default function Home() {
         <Image
           src={mainPhoto}
           alt="Photo wit candle"
-          layout="fill"
-          objectFit="cover"
+          // layout="fill"
+          // objectFit="cover"
           quality={100}
           className="mt-50"
+          priority
         />
       </div>
       <div className="absolute inset-0 flex items-center text-white justify-center text-center tracking-widest ">

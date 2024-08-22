@@ -14,7 +14,7 @@ const Footer = () => {
             CONTACT US
           </Link>
         </div>
-        <div class="border-l border-gray-950  md:border-l lg:border-l  " />
+        <div className="border-l border-gray-950  md:border-l lg:border-l  " />
         <div className="mt-4 mr-8 ">
           <h2 className="mb-4">STAY IN THE LOOP</h2>
           <p className="mb-2">

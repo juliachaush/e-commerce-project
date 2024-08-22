@@ -8,7 +8,6 @@ const Input = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(e);
 
     try {
       const response = await fetch("/api/submit-email", {
@@ -16,7 +15,7 @@ const Input = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email: "user@example.com" }),
       });
 
       const data = await response.json();
