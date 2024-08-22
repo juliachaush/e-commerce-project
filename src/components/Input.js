@@ -15,7 +15,7 @@ const Input = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email: "user@example.com" }),
+        body: JSON.stringify({ email }),
       });
 
       const data = await response.json();
