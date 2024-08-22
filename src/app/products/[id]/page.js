@@ -48,18 +48,21 @@ function ProductPage() {
 
       <ul>
         {product.map((item) => (
-          <li key={item.product_id}>
+          <li key={item.product_id} className="flex flex-row lg:mt-10 mb-10 ">
             <Image
               src={item.image_url}
-              width={500}
-              height={500}
+              width={600}
+              height={600}
               alt={item.product_title}
             />
-
-            <h1>{item.product_title}</h1>
-            <p>
-              {formatCurrency(item.product_price, userLocale, userCurrency)}
-            </p>
+            <div className="lg:mt-20 lg:ml-20">
+              <h1>{item.product_title}</h1>
+              <p>
+                {formatCurrency(item.product_price, userLocale, userCurrency)}
+              </p>
+              <p>{item.product_description}</p>
+              <p>{item.product_characteristics}</p>
+            </div>
           </li>
         ))}
       </ul>
