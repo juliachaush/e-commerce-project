@@ -1,8 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import SideCart from "./SideCart";
+import { useState } from "react";
 
-function MainHeader({ path, linkName, cart }) {
+function MainHeader({ path, linkName, cart, logIn }) {
+  const [showSideCart, setShowSideCart] = useState(false);
+
   return (
     <>
       <div className=" flex flex-row bg-gray-950 text-white w-full  justify-center text-sm  ">
@@ -21,14 +25,27 @@ function MainHeader({ path, linkName, cart }) {
             BASE CODE
           </Link>
         </div>
-        {cart ? (
-          <Link href={cart.path} className="flex flex-row pr-6">
-            {cart.name}
-          </Link>
-        ) : (
-          ""
-        )}
+        <div className="flex flex-row pr-8 ">
+          {logIn ? (
+            <Link href={logIn.path} className="flex flex-row pr-6">
+              {logIn.name}
+            </Link>
+          ) : (
+            ""
+          )}
+          {cart ? (
+            <button onClick={() => setShowSideCart((prev) => !prev)}>
+              {cart.name}
+            </button>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
+      <SideCart
+        visible={showSideCart}
+        onRequestClose={() => setShowSideCart(false)}
+      />
     </>
   );
 }

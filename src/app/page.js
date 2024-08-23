@@ -5,6 +5,7 @@ import plates from "../assets/plates.webp";
 import bathroom from "../assets/bathroom.webp";
 import Image from "next/image";
 import { Footer } from "../components/Footer";
+import SideCart from "../components/SideCart";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
           path={{ products: "/products", contacts: "/contacts" }}
           linkName={{ products: "Catalog", contacts: "Contacts" }}
           cart={{ path: "/cart", name: "Cart" }}
+          logIn={{ path: "/login", name: "Log In" }}
         />
       </div>
       <div className="relative w-screen h-screen">
@@ -23,14 +25,14 @@ export default function Home() {
           // layout="fill"
           // objectFit="cover"
           quality={100}
-          className="mt-50"
+          className="mt-50 object-cover w-full h-full"
           priority
         />
       </div>
       <div className="absolute inset-0 flex items-center text-white justify-center text-center tracking-widest ">
         <p>SPRING/SUMMER 2024</p>
       </div>
-      <div className=" lg:col-span-4 mt-10 mb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0 ">
+      <div className=" lg:col-span-4 mt-10 mb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0  lg:mt-20 md:mt-20">
         <div className=" grid grid-cols-1 grid-rows-1 pl-10 pr-10 ">
           <h2>SHOP BY CATEGORY</h2>
           <p className="text-sm">
@@ -66,6 +68,7 @@ export default function Home() {
           className="mt-50"
         />
       </div>
+
       <Footer />
     </main>
   );
