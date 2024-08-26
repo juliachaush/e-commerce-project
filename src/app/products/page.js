@@ -1,3 +1,23 @@
+// import { fetchProducts } from "@/src/lib/products";
+
+// export default async function ProductsPage() {
+//   try {
+//     const data = await fetchProducts();
+
+//     console.log("product data", data);
+//   } catch (error) {
+//     console.error("Failed to load products:", error);
+//   }
+
+//   return (
+//     <>
+//       {data.map((item) => (
+//         <li key={item.product_title}>{item.product_title}</li>
+//       ))}
+//     </>
+//   );
+// }
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
