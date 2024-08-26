@@ -4,7 +4,7 @@ import Link from "next/link";
 import SideCart from "./SideCart";
 import { useState } from "react";
 
-function MainHeader({ path, linkName, cart, logIn }) {
+function MainHeader({ path, linkName, logIn }) {
   const [showSideCart, setShowSideCart] = useState(false);
 
   return (
@@ -33,13 +33,8 @@ function MainHeader({ path, linkName, cart, logIn }) {
           ) : (
             ""
           )}
-          {cart ? (
-            <button onClick={() => setShowSideCart((prev) => !prev)}>
-              {cart.name}
-            </button>
-          ) : (
-            ""
-          )}
+
+          <button onClick={() => setShowSideCart((prev) => !prev)}>Cart</button>
         </div>
       </div>
       <SideCart

@@ -1,7 +1,10 @@
 import Image from "next/image";
 import plates from "../assets/plates.webp";
+import { useCart } from "./CartContext";
+import { useState } from "react";
 
 const SideCart = ({ visible, onRequestClose }) => {
+  const [cart, setCart] = useState([]);
   return (
     <div
       style={{ right: visible ? "0" : "-100%" }}
@@ -13,6 +16,7 @@ const SideCart = ({ visible, onRequestClose }) => {
       </div>
       <div className="w-full h-0.5 bg-gray-200" />
 
+      {/* {cart.products.length === 0 && <p>You have 0 items in your cart</p>} */}
       <div className="p-4">
         <div className="flex space-x-4">
           <Image

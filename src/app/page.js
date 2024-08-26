@@ -5,7 +5,6 @@ import plates from "../assets/plates.webp";
 import bathroom from "../assets/bathroom.webp";
 import Image from "next/image";
 import { Footer } from "../components/Footer";
-import SideCart from "../components/SideCart";
 
 export default function Home() {
   return (
@@ -14,7 +13,7 @@ export default function Home() {
         <MainHeader
           path={{ products: "/products", contacts: "/contacts" }}
           linkName={{ products: "Catalog", contacts: "Contacts" }}
-          cart={{ path: "/cart", name: "Cart" }}
+          // cart={{ path: "/cart", name: "Cart" }}
           logIn={{ path: "/login", name: "Log In" }}
         />
       </div>

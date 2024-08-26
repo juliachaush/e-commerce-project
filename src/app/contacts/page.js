@@ -7,7 +7,7 @@ function Contacts() {
       <MainHeader
         path={{ products: "/products" }}
         linkName={{ products: "Catalog" }}
-        cart={{ path: "/cart", name: "Cart" }}
+        // cart={{ path: "/cart", name: "Cart" }}
       />
 
       <h1>Contacts</h1>
