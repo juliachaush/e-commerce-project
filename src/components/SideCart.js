@@ -1,6 +1,5 @@
 import Image from "next/image";
 import plates from "../assets/plates.webp";
-import { useCart } from "./CartContext";
 import { useState } from "react";
 
 const SideCart = ({ visible, onRequestClose }) => {
@@ -12,7 +11,12 @@ const SideCart = ({ visible, onRequestClose }) => {
     >
       <div className="p-4 flex justify-between">
         <h1 className="font-semibold uppercase text-gray-600">Cart</h1>
-        <button className="uppercase text-sm">Clear</button>
+        <button
+          onClick={onRequestClose}
+          className="outline-none    text-xs uppercase hover:underline"
+        >
+          Close
+        </button>
       </div>
       <div className="w-full h-0.5 bg-gray-200" />
 
@@ -48,7 +52,7 @@ const SideCart = ({ visible, onRequestClose }) => {
       </div>
 
       <div className="w-full h-0.5 bg-gray-200" />
-
+      <button className="uppercase text-sm">Clear</button>
       <div className="mt-auto p-4">
         <div className="py-4">
           <h1 className="font-semibold text-xl uppercase">Total</h1>
@@ -62,12 +66,6 @@ const SideCart = ({ visible, onRequestClose }) => {
 
         <button className="border-2 border-gray-950 py-2 w-full rounded text-gray-950 uppercase">
           Checkout
-        </button>
-        <button
-          onClick={onRequestClose}
-          className="outline-none block mt-4 text-center w-full uppercase"
-        >
-          Close
         </button>
       </div>
     </div>

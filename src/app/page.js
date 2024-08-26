@@ -5,6 +5,7 @@ import plates from "../assets/plates.webp";
 import bathroom from "../assets/bathroom.webp";
 import Image from "next/image";
 import { Footer } from "../components/Footer";
+import PopupWithEmail from "../components/PopupWithEmail";
 
 export default function Home() {
   return (
@@ -67,7 +68,7 @@ export default function Home() {
           className="mt-50"
         />
       </div>
-
+      <PopupWithEmail />
       <Footer />
     </main>
   );

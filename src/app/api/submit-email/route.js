@@ -4,9 +4,12 @@ export async function POST(req) {
   const { email } = await req.json();
 
   if (!email) {
-    return new Response(JSON.stringify({ error: "Email is required" }), {
-      status: 400,
-    });
+    return new Response(
+      JSON.stringify({ error: "Please write your email adress" }),
+      {
+        status: 400,
+      }
+    );
   }
 
   try {

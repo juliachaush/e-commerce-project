@@ -32,20 +32,24 @@ const Input = () => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <div className="grid grid-cols-2 mb-4">
+      <div className=" relative grid grid-cols-2  pb-8 ">
         <input
           id="email"
           name="email"
           type="email"
           placeholder="email"
-          className=" border border-gray-950 text-gray-950 bg-gray-100 p-2 min-w-[200px] placeholder-gray-950 focus:outline-none focus:border-gray-500 focus:ring-0 placeholder-hidden"
+          className=" border border-gray-950 text-gray-950 bg-gray-100 p-2 pl-4 min-w-[160px] placeholder-gray-950 focus:outline-none focus:border-gray-500 focus:ring-0 placeholder-hidden"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <button type="submit" className="border border-gray-950 text-gray-950 ">
           SUBSCRIBE
         </button>
-        {message && <p>{message}</p>}
+        {message && (
+          <div className=" absolute bottom-2 text-red-600 text-sm pt-8">
+            <p>{message}</p>
+          </div>
+        )}
       </div>
     </form>
   );
