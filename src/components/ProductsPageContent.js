@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useRef } from "react";
 
-import { ProductCards } from "../../components/ProductCard";
+import { ProductCards } from "@/src/components/ProductCard";
 import { Breadcrumbs } from "@/src/components/BreadCrumbs";
-import MainHeader from "../../components/MainHeader";
+import MainHeader from "@/src/components/MainHeader";
 import { fetchProducts } from "@/src/lib/products";
 import {
   DropdownMenu,
@@ -14,13 +14,14 @@ import {
 import { ChevronDown, Filter } from "lucide-react";
 import { SORT_OPTIONS } from "@/src/lib/const";
 import { cn } from "@/src/lib/utils";
-import { SORT_VALUES } from "../../lib/const";
+import { SORT_VALUES } from "@/src/lib/const";
 import { Footer } from "@/src/components/Footer";
 
 const breadCrumbs = [{ name: "home", url: "/" }];
 
-function ProductsPage() {
-  const [products, setProducts] = useState([]);
+function ProductsPageContent({ data }) {
+  console.log("products", data);
+  const [products, setProducts] = useState(data);
   const [filter, setFilter] = useState({
     sort: "none",
   });
@@ -28,19 +29,17 @@ function ProductsPage() {
   const initialProducts = useRef();
 
   useEffect(() => {
-    async function loadProducts() {
-      try {
-        const data = await fetchProducts();
-        initialProducts.current = data;
-        setProducts(data);
-      } catch (error) {
-        console.error("Failed to load products:", error);
-      }
-    }
+    initialProducts.current = data;
+  }, [data]);
 
-    loadProducts();
-  }, []);
+  if (!data) {
+    return <p>Loading products...</p>; // Display a loading message or a spinner
+  }
 
+  // Handle empty data array
+  if (data.length === 0) {
+    return <p>No products available.</p>;
+  }
   function handleClick(value) {
     setFilter((prev) => ({
       ...prev,
@@ -113,4 +112,21 @@ function ProductsPage() {
   );
 }
 
-export default ProductsPage;
+export default ProductsPageContent;
+
+// import ProductsPageClient from "./ProductsPageClient";
+// import { fetchProducts } from "@/src/lib/products";
+
+// export default async function ProductPage() {
+//   // Fetch data on the server
+
+//   try {
+//     const res = await fetchProducts();
+//     const fetchedProducts = await res.json();
+//     return <ProductsPageClient fetchedProducts={fetchedProducts} />;
+//   } catch (error) {
+//     console.error("Failed to load products:", error);
+//   }
+// }
+
+// Pass the fetched data as props to the Client Component
