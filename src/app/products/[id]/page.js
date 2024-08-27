@@ -1,13 +1,16 @@
 "use client";
-import { fetchProductById } from "@/src/lib/products";
+
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import { Breadcrumbs } from "@/src/components/BreadCrumbs";
-import MainHeader from "@/src/components/MainHeader";
+
+import { fetchProductById } from "@/src/lib/products";
+import { BUTTON_NAMES } from "@/src/lib/const";
 import { formatCurrency } from "@/src/lib/formatCurrency";
+
+import { Breadcrumbs } from "@/src/components/BreadCrumbs";
+import { MainHeader } from "@/src/components/MainHeader";
 import { Footer } from "@/src/components/Footer";
-import { Fullscreen } from "lucide-react";
 import { Button } from "@/src/components/Button";
 
 const userLocale = "en-US";
@@ -44,6 +47,7 @@ function ProductPage({ onClick }) {
       <MainHeader
         path={{ products: "/products", contacts: "/contacts" }}
         linkName={{ products: "Catalog", contacts: "Contacts" }}
+        logIn={{ path: "/login", name: "Log In" }}
         cart={{ path: "/cart", name: "Cart" }}
       />
       <Breadcrumbs breadCrumbs={breadCrumbs} />
@@ -70,7 +74,7 @@ function ProductPage({ onClick }) {
               <p>{item.product_description}</p>
               <p>{item.product_characteristics}</p>
               <Button
-                name={"ADD TO CART"}
+                name={BUTTON_NAMES.addToCartButton}
                 onClick={onClick}
                 className={
                   "mt-8 border  border-gray-950 text-gray-950 pt-4 pb-4 pl-8 pr-8"

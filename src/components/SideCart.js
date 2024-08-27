@@ -72,4 +72,4 @@ const SideCart = ({ visible, onRequestClose }) => {
   );
 };
 
-export default SideCart;
+export { SideCart };

@@ -1,8 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import SideCart from "./SideCart";
 import { useState } from "react";
+
+import Link from "next/link";
+
+import { SideCart } from "./SideCart";
 
 function MainHeader({ path, linkName, logIn }) {
   const [showSideCart, setShowSideCart] = useState(false);
@@ -46,4 +48,4 @@ function MainHeader({ path, linkName, logIn }) {
     </>
   );
 }
-export default MainHeader;
+export { MainHeader };

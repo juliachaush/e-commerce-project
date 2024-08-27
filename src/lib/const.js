@@ -18,3 +18,8 @@ export const SORT_VALUES = {
   priceDesc: "Price-desc",
   priceNone: "none",
 };
+
+export const BUTTON_NAMES = {
+  addToCartButton: "ADD TO CART",
+  subscribeButton: "SUBSCRIBE",
+};

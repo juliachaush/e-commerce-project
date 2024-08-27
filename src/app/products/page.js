@@ -1,40 +1,23 @@
-// import { fetchProducts } from "@/src/lib/products";
-
-// export default async function ProductsPage() {
-//   try {
-//     const data = await fetchProducts();
-
-//     console.log("product data", data);
-//   } catch (error) {
-//     console.error("Failed to load products:", error);
-//   }
-
-//   return (
-//     <>
-//       {data.map((item) => (
-//         <li key={item.product_title}>{item.product_title}</li>
-//       ))}
-//     </>
-//   );
-// }
-
 "use client";
 
 import { useState, useEffect, useRef } from "react";
 
+import { SORT_OPTIONS } from "@/src/lib/const";
+import { SORT_VALUES } from "../../lib/const";
+
+import { cn } from "@/src/lib/utils";
+import { fetchProducts } from "@/src/lib/products";
+
 import { ProductCards } from "../../components/ProductCard";
 import { Breadcrumbs } from "@/src/components/BreadCrumbs";
-import MainHeader from "../../components/MainHeader";
-import { fetchProducts } from "@/src/lib/products";
+import { MainHeader } from "../../components/MainHeader";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/src/components/DropdownMenu";
 import { ChevronDown, Filter } from "lucide-react";
-import { SORT_OPTIONS } from "@/src/lib/const";
-import { cn } from "@/src/lib/utils";
-import { SORT_VALUES } from "../../lib/const";
 import { Footer } from "@/src/components/Footer";
 
 const breadCrumbs = [{ name: "home", url: "/" }];
@@ -93,6 +76,7 @@ function ProductsPage() {
       <MainHeader
         path={{ products: "/products", contacts: "/contacts" }}
         linkName={{ products: "Catalog", contacts: "Contacts" }}
+        logIn={{ path: "/login", name: "Log In" }}
         cart={{ path: "/cart", name: "Cart" }}
       />
       <div className="flex items-center justify-between ">

@@ -1,11 +1,13 @@
-import MainHeader from "../components/MainHeader";
+import Image from "next/image";
+
+import { MainHeader } from "../components/MainHeader";
+import { Footer } from "../components/Footer";
+import { PopupWithEmail } from "../components/PopupWithEmail";
+
 import mainPhoto from "../assets/main.jpg";
 import candles from "../assets/candles.webp";
 import plates from "../assets/plates.webp";
 import bathroom from "../assets/bathroom.webp";
-import Image from "next/image";
-import { Footer } from "../components/Footer";
-import PopupWithEmail from "../components/PopupWithEmail";
 
 export default function Home() {
   return (
@@ -14,7 +16,6 @@ export default function Home() {
         <MainHeader
           path={{ products: "/products", contacts: "/contacts" }}
           linkName={{ products: "Catalog", contacts: "Contacts" }}
-          // cart={{ path: "/cart", name: "Cart" }}
           logIn={{ path: "/login", name: "Log In" }}
         />
       </div>
@@ -22,8 +23,6 @@ export default function Home() {
         <Image
           src={mainPhoto}
           alt="Photo wit candle"
-          // layout="fill"
-          // objectFit="cover"
           quality={100}
           className="mt-50 object-cover w-full h-full"
           priority

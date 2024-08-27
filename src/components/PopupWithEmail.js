@@ -1,18 +1,15 @@
-// components/Popup.js
 "use client";
-// components/Popup.js
+
 import { useState, useEffect } from "react";
 import { Input } from "@/src/components/Input";
 
-export default function Popup() {
+function PopupWithEmail() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Check if the popup has been shown before
     const hasShownPopup = localStorage.getItem("popupShown");
 
     if (!hasShownPopup) {
-      // Show the popup if it hasn't been shown before
       setIsVisible(true);
 
       localStorage.setItem("popupShown", "true");
@@ -45,3 +42,5 @@ export default function Popup() {
     )
   );
 }
+
+export { PopupWithEmail };

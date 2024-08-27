@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BUTTON_NAMES } from "../lib/const";
 
 const Input = () => {
   const [email, setEmail] = useState("");
@@ -43,7 +44,7 @@ const Input = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <button type="submit" className="border border-gray-950 text-gray-950 ">
-          SUBSCRIBE
+          {BUTTON_NAMES.subscribeButton}
         </button>
         {message && (
           <div className=" absolute bottom-2 text-red-600 text-sm pt-8">

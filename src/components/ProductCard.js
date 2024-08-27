@@ -1,33 +1,20 @@
-"use client";
-
 import Link from "next/link";
-import Image from "next/image";
-import { Button } from "./Button";
-import { useState } from "react";
 
 import { formatCurrency } from "../lib/formatCurrency";
 import { ProductSkeleton } from "./ProductSkeleton";
-import ImageWithButton from "./ImageWithButton";
+import { ImageWithButton } from "./ImageWithButton";
 
 const userLocale = "en-US";
 const userCurrency = "USD";
 
 const ProductCards = ({ products }) => {
-  const [cart, setCart] = useState([]);
-
-  const handleAddToCart = (product) => {
-    console.log("hello from hendler", product);
-    setCart((prevProducts) => [...prevProducts, product]);
-    console.log(cart);
-  };
-
   return (
     <ul className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0">
       {products && products.length > 0
         ? products.map((item) => (
             <li key={item.product_id} className="lg:p-1 md:w-full  mt-4 ">
               <ImageWithButton
-                onClick={() => handleAddToCart(item)}
+                item={item}
                 src={item.image_url}
                 alt={item.product_title}
                 href={`/products/${item.product_id}`}

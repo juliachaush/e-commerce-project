@@ -1,4 +1,4 @@
-import MainHeader from "@/src/components/MainHeader";
+import { MainHeader } from "@/src/components/MainHeader";
 import { Footer } from "@/src/components/Footer";
 
 function Contacts() {
@@ -7,7 +7,8 @@ function Contacts() {
       <MainHeader
         path={{ products: "/products" }}
         linkName={{ products: "Catalog" }}
-        // cart={{ path: "/cart", name: "Cart" }}
+        logIn={{ path: "/login", name: "Log In" }}
+        cart={{ path: "/cart", name: "Cart" }}
       />
 
       <h1>Contacts</h1>
