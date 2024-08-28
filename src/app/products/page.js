@@ -6,7 +6,7 @@ import { ProductsPageContent } from "@/src/components/ProductsPageContent";
 import Wrapper from "@/src/components/Wrapper";
 
 export default async function ProductsPage() {
-  const data = await fetchProducts();
+  const products = await fetchProducts();
 
   return (
     <Wrapper>
@@ -16,7 +16,8 @@ export default async function ProductsPage() {
         logIn={{ path: "/login", name: "Log In" }}
         cart={{ path: "/cart", name: "Cart" }}
       />
-      <ProductsPageContent data={data} />
+
+      <ProductsPageContent data={products} />
       <Footer />
     </Wrapper>
   );

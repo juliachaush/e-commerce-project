@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { SORT_OPTIONS } from "@/src/lib/const";
 import { SORT_VALUES } from "@/src/lib/const";
@@ -25,20 +25,6 @@ const SortDropdown = ({ products, initialProducts }) => {
   useEffect(() => {
     setFilterProducts(products);
   }, [products]);
-
-  //   useEffect(() => {
-  //     async function loadProducts() {
-  //       try {
-  //         // const data = await fetchProducts();
-  //         initialProducts.current = data;
-  //         setProducts(data);
-  //       } catch (error) {
-  //         console.error("Failed to load products:", error);
-  //       }
-  //     }
-
-  //     loadProducts();
-  //   }, [data]);
 
   function handleClick(value) {
     setFilter((prev) => ({

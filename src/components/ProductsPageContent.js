@@ -1,10 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-
 import { ProductCards } from "@/src/components/ProductCard";
-import { Breadcrumbs } from "@/src/components/BreadCrumbs";
-import MainHeader from "@/src/components/MainHeader";
 
 import {
   DropdownMenu,
@@ -12,15 +9,14 @@ import {
   DropdownMenuTrigger,
 } from "@/src/components/DropdownMenu";
 import { ChevronDown, Filter } from "lucide-react";
+import { Breadcrumbs } from "@/src/components/BreadCrumbs";
 import { SORT_OPTIONS } from "@/src/lib/const";
 import { cn } from "@/src/lib/utils";
 import { SORT_VALUES } from "@/src/lib/const";
-import { Footer } from "@/src/components/Footer";
 
 const breadCrumbs = [{ name: "home", url: "/" }];
 
 function ProductsPageContent({ data }) {
-  console.log("productsssss", data);
   const [products, setProducts] = useState(data);
   const [filter, setFilter] = useState({
     sort: "none",
@@ -68,7 +64,7 @@ function ProductsPageContent({ data }) {
 
   return (
     <>
-      <div className="flex items-center justify-between ">
+      <div className="flex justify-between">
         <Breadcrumbs breadCrumbs={breadCrumbs} />
         <DropdownMenu>
           <DropdownMenuTrigger className="group inline-flex justify-center text-sm text-gray-700 hover:text-gray-900 pr-8">
@@ -97,9 +93,7 @@ function ProductsPageContent({ data }) {
           <Filter className="h-5 w-5" />
         </button>
       </div>
-      <div>
-        <ProductCards products={products} />
-      </div>
+      <ProductCards products={products} />
     </>
   );
 }
