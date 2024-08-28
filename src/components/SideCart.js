@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import plates from "../assets/plates.webp";
 import { useState } from "react";

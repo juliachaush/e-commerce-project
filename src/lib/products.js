@@ -22,12 +22,15 @@ const fetchProducts = async () => {
 
 const fetchProductById = async (id) => {
   try {
-    const response = await fetch(`/api/products/${id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/products/${id}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     if (!response.ok) {
       throw new Error(`Ошибка: ${response.status}`);
     }
