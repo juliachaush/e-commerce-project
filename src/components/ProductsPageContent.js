@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import { ProductCards } from "@/src/components/ProductCard";
 import { Breadcrumbs } from "@/src/components/BreadCrumbs";
 import MainHeader from "@/src/components/MainHeader";
-import { fetchProducts } from "@/src/lib/products";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,7 +20,7 @@ import { Footer } from "@/src/components/Footer";
 const breadCrumbs = [{ name: "home", url: "/" }];
 
 function ProductsPageContent({ data }) {
-  console.log("products", data);
+  console.log("productsssss", data);
   const [products, setProducts] = useState(data);
   const [filter, setFilter] = useState({
     sort: "none",
@@ -33,10 +33,9 @@ function ProductsPageContent({ data }) {
   }, [data]);
 
   if (!data) {
-    return <p>Loading products...</p>; // Display a loading message or a spinner
+    return <p>Loading products...</p>;
   }
 
-  // Handle empty data array
   if (data.length === 0) {
     return <p>No products available.</p>;
   }
@@ -69,64 +68,39 @@ function ProductsPageContent({ data }) {
 
   return (
     <>
-      <MainHeader
-        path={{ products: "/products", contacts: "/contacts" }}
-        linkName={{ products: "Catalog", contacts: "Contacts" }}
-        cart={{ path: "/cart", name: "Cart" }}
-      />
       <div className="flex items-center justify-between ">
         <Breadcrumbs breadCrumbs={breadCrumbs} />
-        <div className="flex items-center ">
-          <DropdownMenu>
-            <DropdownMenuTrigger className="group inline-flex justify-center text-sm text-gray-700 hover:text-gray-900 pr-8">
-              Sort
-              <ChevronDown className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              {SORT_OPTIONS.map((option) => (
-                <button
-                  key={option.name}
-                  className={cn("text-left w-full block px-4 py-2 text-sm", {
-                    "text-gray-900 bg-gray-100": option.value === filter.sort,
-                    "text-gray-500": option.value !== filter.sort,
-                  })}
-                  onClick={() => {
-                    handleClick(option.value);
-                  }}
-                >
-                  {option.name}
-                </button>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+        <DropdownMenu>
+          <DropdownMenuTrigger className="group inline-flex justify-center text-sm text-gray-700 hover:text-gray-900 pr-8">
+            Sort
+            <ChevronDown className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500" />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            {SORT_OPTIONS.map((option) => (
+              <button
+                key={option.name}
+                className={cn("text-left w-full block px-4 py-2 text-sm", {
+                  "text-gray-900 bg-gray-100": option.value === filter.sort,
+                  "text-gray-500": option.value !== filter.sort,
+                })}
+                onClick={() => {
+                  handleClick(option.value);
+                }}
+              >
+                {option.name}
+              </button>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
 
-          <button className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden">
-            <Filter className="h-5 w-5" />
-          </button>
-        </div>
+        <button className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden">
+          <Filter className="h-5 w-5" />
+        </button>
       </div>
-
-      <ProductCards products={products} />
-      <Footer />
+      <div>
+        <ProductCards products={products} />
+      </div>
     </>
   );
 }
-
-export default ProductsPageContent;
-
-// import ProductsPageClient from "./ProductsPageClient";
-// import { fetchProducts } from "@/src/lib/products";
-
-// export default async function ProductPage() {
-//   // Fetch data on the server
-
-//   try {
-//     const res = await fetchProducts();
-//     const fetchedProducts = await res.json();
-//     return <ProductsPageClient fetchedProducts={fetchedProducts} />;
-//   } catch (error) {
-//     console.error("Failed to load products:", error);
-//   }
-// }
-
-// Pass the fetched data as props to the Client Component
+export { ProductsPageContent };
