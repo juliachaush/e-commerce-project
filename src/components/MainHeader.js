@@ -1,16 +1,10 @@
-"use client";
-
-import { useState } from "react";
-
 import Link from "next/link";
-
-import { SideCart } from "./SideCart";
+import { CartButton } from "./CartButton";
+import Wrapper from "./Wrapper";
 
 function MainHeader({ path, linkName, logIn }) {
-  const [showSideCart, setShowSideCart] = useState(false);
-
   return (
-    <>
+    <Wrapper>
       <div className=" flex flex-row bg-gray-950 text-white w-full  justify-center text-sm  ">
         <p> Free shipping from $50</p>
       </div>
@@ -38,14 +32,10 @@ function MainHeader({ path, linkName, logIn }) {
             ""
           )}
 
-          <button onClick={() => setShowSideCart((prev) => !prev)}>Cart</button>
+          <CartButton />
         </div>
       </div>
-      <SideCart
-        visible={showSideCart}
-        onRequestClose={() => setShowSideCart(false)}
-      />
-    </>
+    </Wrapper>
   );
 }
 export { MainHeader };

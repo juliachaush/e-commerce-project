@@ -33,7 +33,7 @@ const Input = () => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <div className=" relative grid grid-cols-2  pb-8 ">
+      <div className=" relative grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1  lg:grid-rows-1 md:grid-rows-1 sm:grid-rows-2 lg:gap-0 md:gap-0 sm:gap-2   ">
         <input
           id="email"
           name="email"
