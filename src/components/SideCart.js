@@ -1,11 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import plates from "../assets/plates.webp";
-import { useState } from "react";
+
+import { useCart } from "../store/store";
+import { formatCurrency } from "../lib/formatCurrency";
+
+const userLocale = "en-US";
+const userCurrency = "USD";
 
 const SideCart = ({ visible, onRequestClose }) => {
-  const [cart, setCart] = useState([]);
+  const cart = useCart();
+
+  console.log("my cart", cart);
+
   return (
     <div
       style={{ right: visible ? "0" : "-100%" }}
@@ -22,36 +29,55 @@ const SideCart = ({ visible, onRequestClose }) => {
       </div>
       <div className="w-full h-0.5 bg-gray-200" />
 
-      {/* {cart.products.length === 0 && <p>You have 0 items in your cart</p>} */}
-      <div className="p-4">
-        <div className="flex space-x-4">
-          <Image
-            src={plates}
-            alt=""
-            className="w-16 aspect-square rounded object-cover"
-          />
-          <div className="flex-1">
-            <h2 className="font-semibold">Plates</h2>
-            <div className="flex text-gray-400 text-sm space-x-1">
-              <span>1</span>
-              <span>x</span>
-              <span>100</span>
-            </div>
-          </div>
+      <ul>
+        {cart.products.length === 0 && (
+          <p className="flex justify-center p-4">
+            You have 0 items in your cart
+          </p>
+        )}
+        {cart.products.length > 0 &&
+          cart.products.map((item) => (
+            <li key={item.product_id}>
+              <div className="p-4">
+                <div className="flex space-x-4">
+                  <Image
+                    src={item.image_url}
+                    alt={item.product_title}
+                    width={100}
+                    height={100}
+                    className="w-16 aspect-square rounded object-cover"
+                  />
+                  <div className="flex-1">
+                    <h2 className="font-semibold">{item.product_title}</h2>
+                    <div className="flex text-gray-400 text-sm space-x-1">
+                      <span>1</span>
+                      <span>x</span>
+                      <span>
+                        {formatCurrency(
+                          item.product_price,
+                          userLocale,
+                          userCurrency
+                        )}
+                      </span>
+                    </div>
+                  </div>
 
-          <div className="ml-auto">
-            <button className="text-xs uppercase hover:underline">
-              Remove
-            </button>
+                  <div className="ml-auto">
+                    <button className="text-xs uppercase hover:underline">
+                      Remove
+                    </button>
 
-            <div className="flex items-center justify-between">
-              <button>-</button>
-              <span className="text-xs">1</span>
-              <button>+</button>
-            </div>
-          </div>
-        </div>
-      </div>
+                    <div className="flex items-center justify-between">
+                      <button>-</button>
+                      <span className="text-xs">1</span>
+                      <button>+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          ))}
+      </ul>
 
       <div className="w-full h-0.5 bg-gray-200" />
       <button className="uppercase text-sm">Clear</button>
