@@ -22,7 +22,7 @@ function PopupWithEmail() {
 
   return (
     isVisible && (
-      <div className="fixed bottom-4 right-4 p-8 bg-white border border-gray-300 shadow-lg max-w-[600px] rounded-md z-50">
+      <div className="fixed bottom-4 right-4 p-12 bg-white border border-gray-300 shadow-lg max-w-[600px] rounded-md z-50">
         <button
           className=" flex  float-end mr-4 text-gray-500 hover:text-gray-800"
           onClick={closePopup}
