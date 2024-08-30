@@ -2,10 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-
 import { BUTTON_NAMES } from "../lib/const";
 import { Button } from "./Button";
-
 import { addToCart } from "../store/store";
 import { useDispatch } from "react-redux";
 

@@ -3,7 +3,6 @@
 import { useState, useEffect, Suspense } from "react";
 import { useCart } from "../store/store";
 import { SideCart } from "./SideCart";
-import Loading from "../app/loading";
 
 function CartButton() {
   const cart = useCart();

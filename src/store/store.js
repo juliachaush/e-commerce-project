@@ -14,12 +14,6 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    setCart: (state, action) => {
-      state.products = action.payload.products;
-      state.totalQuantity = action.payload.totalQuantity;
-      state.totalPrice = action.payload.totalPrice;
-    },
-
     addToCart: (state, action) => {
       const item = action.payload;
       const existingProduct = state.products.find(
@@ -104,13 +98,8 @@ export const cartSlice = createSlice({
   },
 });
 
-export const {
-  setCart,
-  addToCart,
-  removeFromCart,
-  clearCart,
-  removeItemFromCart,
-} = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart, removeItemFromCart } =
+  cartSlice.actions;
 
 export const createStore = () => {
   const store = configureStore({
