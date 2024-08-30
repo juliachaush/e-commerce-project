@@ -2,7 +2,13 @@
 
 import Image from "next/image";
 import { useDispatch } from "react-redux";
-import { useCart, addToCart, removeFromCart, clearCart } from "../store/store";
+import {
+  useCart,
+  addToCart,
+  removeFromCart,
+  clearCart,
+  removeItemFromCart,
+} from "../store/store";
 import { formatCurrency } from "../lib/formatCurrency";
 
 const SideCart = ({ visible, onRequestClose }) => {
@@ -15,6 +21,10 @@ const SideCart = ({ visible, onRequestClose }) => {
 
   const handleRemoveFromCart = (product) => {
     dispatch(removeFromCart(product));
+  };
+
+  const handleRemoveItemFromCart = (product) => {
+    dispatch(removeItemFromCart(product));
   };
 
   const handleClearCart = () => {
@@ -65,7 +75,10 @@ const SideCart = ({ visible, onRequestClose }) => {
                   </div>
 
                   <div className="ml-auto">
-                    <button className="text-xs uppercase hover:underline">
+                    <button
+                      onClick={() => handleRemoveItemFromCart(item)}
+                      className="text-xs uppercase hover:underline"
+                    >
                       Remove
                     </button>
 

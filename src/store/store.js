@@ -75,6 +75,27 @@ export const cartSlice = createSlice({
       );
     },
 
+    removeItemFromCart: (state, action) => {
+      const item = action.payload;
+      const existingProduct = state.products.find(
+        (p) => p.product_id === item.product_id
+      );
+
+      if (existingProduct) {
+        state.products = state.products.filter(
+          (p) => p.product_id !== item.product_id
+        );
+      }
+      state.totalQuantity = state.products.reduce(
+        (acc, p) => acc + (p.quantity || 0),
+        0
+      );
+      state.totalPrice = state.products.reduce(
+        (acc, p) => acc + p.product_price * (p.quantity || 0),
+        0
+      );
+    },
+
     clearCart: (state, action) => {
       state.products = [];
       state.totalQuantity = 0;
@@ -83,8 +104,13 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { setCart, addToCart, removeFromCart, clearCart } =
-  cartSlice.actions;
+export const {
+  setCart,
+  addToCart,
+  removeFromCart,
+  clearCart,
+  removeItemFromCart,
+} = cartSlice.actions;
 
 export const createStore = () => {
   const store = configureStore({
