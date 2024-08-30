@@ -1,19 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useCart } from "../store/store";
 import { SideCart } from "./SideCart";
+import Loading from "../app/loading";
 
 function CartButton() {
   const cart = useCart();
   const [showSideCart, setShowSideCart] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
+  if (!isHydrated) {
+    return (
+      <>
+        <button className="flex flex-row">Cart( )</button>
+      </>
+    );
+  }
   return (
     <>
       <button
         onClick={() => setShowSideCart((prev) => !prev)}
         className="flex flex-row"
       >
-        Cart<p>({Number(cart.products.length)})</p>
+        Cart<p>({cart.totalQuantity})</p>
       </button>
 
       <SideCart

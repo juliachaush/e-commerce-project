@@ -1,17 +1,25 @@
 "use client";
 
 import Image from "next/image";
-
-import { useCart } from "../store/store";
+import { useDispatch } from "react-redux";
+import { useCart, addToCart, removeFromCart, clearCart } from "../store/store";
 import { formatCurrency } from "../lib/formatCurrency";
 
-const userLocale = "en-US";
-const userCurrency = "USD";
-
 const SideCart = ({ visible, onRequestClose }) => {
+  const dispatch = useDispatch();
   const cart = useCart();
 
-  console.log("my cart", cart);
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
+
+  const handleRemoveFromCart = (product) => {
+    dispatch(removeFromCart(product));
+  };
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
 
   return (
     <div
@@ -50,15 +58,9 @@ const SideCart = ({ visible, onRequestClose }) => {
                   <div className="flex-1">
                     <h2 className="font-semibold">{item.product_title}</h2>
                     <div className="flex text-gray-400 text-sm space-x-1">
-                      <span>1</span>
+                      <span>{item.quantity}</span>
                       <span>x</span>
-                      <span>
-                        {formatCurrency(
-                          item.product_price,
-                          userLocale,
-                          userCurrency
-                        )}
-                      </span>
+                      <span>{formatCurrency(item.sumByProduct)}</span>
                     </div>
                   </div>
 
@@ -68,9 +70,11 @@ const SideCart = ({ visible, onRequestClose }) => {
                     </button>
 
                     <div className="flex items-center justify-between">
-                      <button>-</button>
-                      <span className="text-xs">1</span>
-                      <button>+</button>
+                      <button onClick={() => handleRemoveFromCart(item)}>
+                        -
+                      </button>
+                      <span className="text-xs">{item.quantity}</span>
+                      <button onClick={() => handleAddToCart(item)}>+</button>
                     </div>
                   </div>
                 </div>
@@ -80,17 +84,19 @@ const SideCart = ({ visible, onRequestClose }) => {
       </ul>
 
       <div className="w-full h-0.5 bg-gray-200" />
-      <button className="uppercase text-sm">Clear</button>
+      <button onClick={handleClearCart} className="uppercase text-sm">
+        Clear cart
+      </button>
       <div className="mt-auto p-4">
-        <div className="py-4">
+        <div className=" flex justify-between py-4">
           <h1 className="font-semibold text-xl uppercase">Total</h1>
-          <p className="font-semibold">
-            <span className="text-gray-400 font-normal">
-              The total of your cart is:
-            </span>{" "}
-            ${100}
-          </p>
+          <h1 className="font-semibold text-xl uppercase">
+            ${cart.totalPrice}
+          </h1>
         </div>
+        <p className="font-normal text-sm mb-2 text-gray-500">
+          Taxes and shipping calculated at checkout
+        </p>
 
         <button className="border-2 border-gray-950 py-2 w-full rounded text-gray-950 uppercase">
           Checkout

@@ -4,9 +4,6 @@ import { BUTTON_NAMES } from "@/src/lib/const";
 import { formatCurrency } from "@/src/lib/formatCurrency";
 import { Breadcrumbs } from "@/src/components/BreadCrumbs";
 
-const userLocale = "en-US";
-const userCurrency = "USD";
-
 const breadCrumbs = [
   { name: "home", url: "/" },
   { name: "products", url: "/products" },
@@ -32,9 +29,7 @@ function ProductCardPage({ product, onClick }) {
             </div>
             <div className="lg:mt-8 column-start-2">
               <h1 className="font-bold">{item.product_title}</h1>
-              <p>
-                {formatCurrency(item.product_price, userLocale, userCurrency)}
-              </p>
+              <p>{formatCurrency(item.product_price)}</p>
               <p>{item.product_description}</p>
               <p>{item.product_characteristics}</p>
               <Button

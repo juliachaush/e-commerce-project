@@ -4,9 +4,6 @@ import { formatCurrency } from "../lib/formatCurrency";
 import { ProductSkeleton } from "./ProductSkeleton";
 import { ImageWithButton } from "./ImageWithButton";
 
-const userLocale = "en-US";
-const userCurrency = "USD";
-
 const ProductCards = ({ products }) => {
   return (
     <ul className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0">
@@ -21,9 +18,7 @@ const ProductCards = ({ products }) => {
               />
               <Link href={`/products/${item.product_id}`}>
                 <p>{item.product_title}</p>
-                <p className="pb-2 ">
-                  {formatCurrency(item.product_price, userLocale, userCurrency)}
-                </p>
+                <p className="pb-2 ">{formatCurrency(item.product_price)}</p>
               </Link>
             </li>
           ))
