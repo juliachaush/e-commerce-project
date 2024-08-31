@@ -11,7 +11,7 @@ function ImageWithButton({ src, alt, href, item }) {
   const dispatch = useDispatch();
 
   const handleAddToCart = (product) => {
-    dispatch(addToCart(product));
+    dispatch(addToCart({ ...product, quantity: 1 }));
   };
 
   return (
@@ -23,6 +23,7 @@ function ImageWithButton({ src, alt, href, item }) {
           width={200}
           height={200}
           className="rounded-lg w-full h-full object-cover"
+          priority={false}
         />
       </Link>
 

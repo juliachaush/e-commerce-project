@@ -15,8 +15,8 @@ const SideCart = ({ visible, onRequestClose }) => {
   const dispatch = useDispatch();
   const cart = useCart();
 
-  const handleAddToCart = (product) => {
-    dispatch(addToCart(product));
+  const handleAddToCart = (product, quantity) => {
+    dispatch(addToCart({ ...product, quantity: 1 }));
   };
 
   const handleRemoveFromCart = (product) => {
@@ -87,7 +87,11 @@ const SideCart = ({ visible, onRequestClose }) => {
                         -
                       </button>
                       <span className="text-xs">{item.quantity}</span>
-                      <button onClick={() => handleAddToCart(item)}>+</button>
+                      <button
+                        onClick={() => handleAddToCart(item, item.quantity)}
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
                 </div>

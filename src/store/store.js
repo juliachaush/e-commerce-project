@@ -14,20 +14,23 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    // setQuantity: (state, action) => {
+    //   const item = action.payload;
+    // },
     addToCart: (state, action) => {
       const item = action.payload;
+      console.log("item.quantity", item);
       const existingProduct = state.products.find(
         (p) => p.product_id === item.product_id
       );
-
+      console.log("existingProduct.quantity", existingProduct);
       if (existingProduct) {
-        existingProduct.quantity += 1;
+        existingProduct.quantity += action.payload.quantity;
         existingProduct.sumByProduct =
           existingProduct.product_price * existingProduct.quantity;
       } else {
         state.products.push({
           ...item,
-          quantity: 1,
           sumByProduct: item.product_price,
         });
       }
