@@ -65,12 +65,13 @@ function ProductCardPage({ product }) {
                 <button onClick={handleIncriseQuantity}>+</button>
               </div>
               <Button
-                name={BUTTON_NAMES.addToCartButton}
                 onClick={() => handleAddToCart(item, quantity)}
                 className={
                   "mt-8 border  border-gray-950 text-gray-950 pt-4 pb-4 pl-8 pr-8"
                 }
-              />
+              >
+                {BUTTON_NAMES.addToCartButton}
+              </Button>
             </div>
           </li>
         ))}

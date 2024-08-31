@@ -28,10 +28,11 @@ function ImageWithButton({ src, alt, href, item }) {
       </Link>
 
       <Button
-        name={BUTTON_NAMES.addToCartButton}
         onClick={() => handleAddToCart(item)}
         className="bg-white text-gray-950 hover:bg-white absolute bottom-1 left-1/2 w-full h-10 transform -translate-x-1/2 -translate-y-1/2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
-      />
+      >
+        {BUTTON_NAMES.addToCartButton}
+      </Button>
     </div>
   );
 }

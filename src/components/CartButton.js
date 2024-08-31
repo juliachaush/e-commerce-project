@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useCart } from "../store/store";
 import { SideCart } from "./SideCart";
+import { Button } from "./Button";
 
 function CartButton() {
   const cart = useCart();
@@ -37,12 +38,12 @@ function CartButton() {
   }
   return (
     <>
-      <button
+      <Button
         onClick={() => setShowSideCart((prev) => !prev)}
         className="flex flex-row"
       >
         Cart<p>({cart.totalQuantity})</p>
-      </button>
+      </Button>
 
       <SideCart
         ref={sideCartRef}
