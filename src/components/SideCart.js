@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { forwardRef } from "react";
 import { useDispatch } from "react-redux";
 import {
   useCart,
@@ -11,7 +12,7 @@ import {
 } from "../store/store";
 import { formatCurrency } from "../lib/formatCurrency";
 
-const SideCart = ({ visible, onRequestClose }) => {
+const SideCart = forwardRef(({ visible, onRequestClose }, ref) => {
   const dispatch = useDispatch();
   const cart = useCart();
 
@@ -33,6 +34,7 @@ const SideCart = ({ visible, onRequestClose }) => {
 
   return (
     <div
+      ref={ref}
       style={{ right: visible ? "0" : "-100%" }}
       className="shadow-md transition-all w-96 bg-white min-h-screen fixed right-0 top-0 flex flex-col z-50"
     >
@@ -121,6 +123,7 @@ const SideCart = ({ visible, onRequestClose }) => {
       </div>
     </div>
   );
-};
+});
 
 export { SideCart };
+SideCart.displayName = "SideCart";
