@@ -19,8 +19,8 @@ function MainHeader({ path, linkName, logIn }) {
           </div>
         </div>
         <div className="column-start-2 flex justify-center items-center  row-start-1">
-          <Link href={`/`} className="font-bold  ">
-            BASE CODE
+          <Link href={`/`} className="font-bold uppercase  ">
+            base code
           </Link>
         </div>
         <div className="column-start-2 flex justify-end items-center row-start-1 pr-8 ">

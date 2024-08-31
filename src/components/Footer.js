@@ -3,7 +3,7 @@ import { Input } from "./Input";
 
 const Footer = () => {
   return (
-    <>
+    <div>
       <div className="flex flex-row bg-white text-black  items-center spa justify-between border-b border-gray-950 tracking-widest " />
       <div className=" lg:grid lg:grid-cols-[1fr_1fr]  md:grid-cols-[1fr_1fr] sm:grid-cols-[1fr]  lg:grid-rows-[1fr] sm:grid-rows-[1fr]  gap-0 m-8">
         <div className=" column-start-1 row-start-1  mt-4  ">
@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex flex-row bg-white text-black mb-2 items-center spa justify-between border-b border-gray-950 tracking-widest " />
-    </>
+    </div>
   );
 };
 export { Footer };

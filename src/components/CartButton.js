@@ -40,7 +40,7 @@ function CartButton() {
     <>
       <Button
         onClick={() => setShowSideCart((prev) => !prev)}
-        className="flex flex-row"
+        className="flex flex-row "
       >
         Cart<p>({cart.totalQuantity})</p>
       </Button>

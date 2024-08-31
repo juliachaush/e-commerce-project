@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Input } from "@/src/components/Input";
+import { Button } from "./Button";
 
 function PopupWithEmail() {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,12 +24,12 @@ function PopupWithEmail() {
   return (
     isVisible && (
       <div className="fixed bottom-4 right-4 p-12 bg-white border border-gray-300 shadow-lg max-w-[600px] rounded-md z-50">
-        <button
+        <Button
           className=" flex  float-end mr-4 text-gray-500 hover:text-gray-800"
           onClick={closePopup}
         >
           &times;
-        </button>
+        </Button>
 
         <div className="mt-4 mr-8 ">
           <h2 className="mb-4">STAY IN THE LOOP</h2>

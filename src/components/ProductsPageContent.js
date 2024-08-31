@@ -13,6 +13,7 @@ import { Breadcrumbs } from "@/src/components/BreadCrumbs";
 import { SORT_OPTIONS } from "@/src/lib/const";
 import { cn } from "@/src/lib/utils";
 import { SORT_VALUES } from "@/src/lib/const";
+import { Button } from "./Button";
 
 const breadCrumbs = [{ name: "home", url: "/" }];
 
@@ -89,9 +90,9 @@ function ProductsPageContent({ data }) {
           </DropdownMenuContent>
         </DropdownMenu>
 
-        <button className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden">
+        <Button className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden">
           <Filter className="h-5 w-5" />
-        </button>
+        </Button>
       </div>
       <ProductCards products={products} />
     </>

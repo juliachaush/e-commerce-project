@@ -60,9 +60,9 @@ function ProductCardPage({ product }) {
               <p>{item.product_description}</p>
               <p>{item.product_characteristics}</p>
               <div className="flex flex-row items-center ">
-                <button onClick={handleDecrieseQuantity}>-</button>
+                <Button onClick={handleDecrieseQuantity}>-</Button>
                 <span className="text-xs">{quantity}</span>
-                <button onClick={handleIncriseQuantity}>+</button>
+                <Button onClick={handleIncriseQuantity}>+</Button>
               </div>
               <Button
                 onClick={() => handleAddToCart(item, quantity)}

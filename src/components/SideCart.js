@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { forwardRef } from "react";
 import { useDispatch } from "react-redux";
@@ -11,6 +9,7 @@ import {
   removeItemFromCart,
 } from "../store/store";
 import { formatCurrency } from "../lib/formatCurrency";
+import { Button } from "./Button";
 
 const SideCart = forwardRef(({ visible, onRequestClose }, ref) => {
   const dispatch = useDispatch();
@@ -40,12 +39,12 @@ const SideCart = forwardRef(({ visible, onRequestClose }, ref) => {
     >
       <div className="p-4 flex justify-between">
         <h1 className="font-semibold uppercase text-gray-600">Cart</h1>
-        <button
+        <Button
           onClick={onRequestClose}
           className="outline-none    text-xs uppercase hover:underline"
         >
           Close
-        </button>
+        </Button>
       </div>
       <div className="w-full h-0.5 bg-gray-200" />
 
@@ -77,23 +76,23 @@ const SideCart = forwardRef(({ visible, onRequestClose }, ref) => {
                   </div>
 
                   <div className="ml-auto">
-                    <button
+                    <Button
                       onClick={() => handleRemoveItemFromCart(item)}
                       className="text-xs uppercase hover:underline"
                     >
                       Remove
-                    </button>
+                    </Button>
 
                     <div className="flex items-center justify-between">
-                      <button onClick={() => handleRemoveFromCart(item)}>
+                      <Button onClick={() => handleRemoveFromCart(item)}>
                         -
-                      </button>
+                      </Button>
                       <span className="text-xs">{item.quantity}</span>
-                      <button
+                      <Button
                         onClick={() => handleAddToCart(item, item.quantity)}
                       >
                         +
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -103,9 +102,9 @@ const SideCart = forwardRef(({ visible, onRequestClose }, ref) => {
       </ul>
 
       <div className="w-full h-0.5 bg-gray-200" />
-      <button onClick={handleClearCart} className="uppercase text-sm">
+      <Button onClick={handleClearCart} className="uppercase text-sm">
         Clear cart
-      </button>
+      </Button>
       <div className="mt-auto p-4">
         <div className=" flex justify-between py-4">
           <h1 className="font-semibold text-xl uppercase">Total</h1>
@@ -117,9 +116,9 @@ const SideCart = forwardRef(({ visible, onRequestClose }, ref) => {
           Taxes and shipping calculated at checkout
         </p>
 
-        <button className="border-2 border-gray-950 py-2 w-full rounded text-gray-950 uppercase">
+        <Button className="border-2 border-gray-950 py-2 w-full rounded text-gray-950 uppercase">
           Checkout
-        </button>
+        </Button>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { BUTTON_NAMES } from "../lib/const";
+import { Button } from "./Button";
 
 const Input = () => {
   const [email, setEmail] = useState("");
@@ -45,12 +46,12 @@ const Input = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          <button
+          <Button
             type="submit"
             className="border border-gray-950 text-gray-950 p-2  bg-gray-100 min-w-[160px] hover:bg-gray-200 transition-all"
           >
             {BUTTON_NAMES.subscribeButton}
-          </button>
+          </Button>
         </div>
 
         {message && (
