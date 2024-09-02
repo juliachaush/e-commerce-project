@@ -2,7 +2,8 @@ import { sql } from "@vercel/postgres";
 
 export async function GET(request) {
   try {
-    const result = await sql`SELECT * FROM products;`;
+    const result =
+      await sql`SELECT * FROM products WHERE sale_status = 'sale';`;
     const products = result.rows;
 
     return new Response(JSON.stringify(products), {

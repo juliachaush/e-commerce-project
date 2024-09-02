@@ -11,7 +11,7 @@ function Contacts() {
         cart={{ path: "/cart", name: "Cart" }}
       />
 
-      <h1>Contacts</h1>
+      <h1>About us</h1>
 
       <Footer />
     </>

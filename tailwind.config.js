@@ -2,10 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
-    './app/**/*.{js,jsx}',
-    './src/**/*.{js,jsx}',
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx}",
   ],
   prefix: "",
   theme: {
@@ -17,6 +17,14 @@ module.exports = {
       },
     },
     extend: {
+      colors: {
+        primary: "#1E40AF",
+        secondary: "#F43F5E",
+        "custom-gray": "#6B7280",
+        "light-green": "#D1FAE5",
+        "dark-green": "#065F46",
+        "light-yellow": "#e7e4da",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -34,4 +42,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

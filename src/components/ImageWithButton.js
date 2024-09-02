@@ -7,7 +7,7 @@ import { Button } from "./Button";
 import { addToCart } from "../store/store";
 import { useDispatch } from "react-redux";
 
-function ImageWithButton({ src, alt, href, item }) {
+function ImageWithButton({ src, alt, href, item, classes }) {
   const dispatch = useDispatch();
 
   const handleAddToCart = (product) => {
@@ -22,7 +22,7 @@ function ImageWithButton({ src, alt, href, item }) {
           alt={alt}
           width={200}
           height={200}
-          className="rounded-lg w-full h-full object-cover"
+          className={`rounded-lg w-full h-full object-cover ${classes}`}
           priority={false}
         />
       </Link>
