@@ -14,6 +14,7 @@ import { ProductSaleCard } from "../components/ProductSaleCard";
 
 export default async function Home() {
   const products = await fetchSaleProducts();
+  console.log("products", products);
   return (
     <main>
       <div className="fixed top-0 left-0 w-full  z-10">
@@ -35,11 +36,11 @@ export default async function Home() {
       <div className="absolute inset-0 flex items-center text-white justify-center text-center tracking-widest ">
         <p>SPRING/SUMMER 2024</p>
       </div>
-      {/* 
+
       <div className=" container mx-auto max-w-80xl lg:mt-20">
         <p className=" uppercase flex justify-center font-bold ">sale</p>
         <ProductSaleCard products={products} />
-      </div> */}
+      </div>
       <div className=" container mx-auto max-w-80xl  mt-10 mb-10 grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1  gap-4  lg:mt-20 md:mt-20">
         <div className=" grid  grid-rows-1  pr-10 ">
           <h2>SHOP BY CATEGORY</h2>

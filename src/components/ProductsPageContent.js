@@ -13,7 +13,6 @@ import { Breadcrumbs } from "@/src/components/BreadCrumbs";
 import { SORT_OPTIONS } from "@/src/lib/const";
 import { cn } from "@/src/lib/utils";
 import { SORT_VALUES } from "@/src/lib/const";
-import { Button } from "./Button";
 
 const breadCrumbs = [{ name: "home", url: "/" }];
 
@@ -68,7 +67,7 @@ function ProductsPageContent({ data }) {
       <div className="flex justify-between">
         <Breadcrumbs breadCrumbs={breadCrumbs} />
         <DropdownMenu>
-          <DropdownMenuTrigger className="group inline-flex justify-center text-sm text-gray-700 hover:text-gray-900 pr-8">
+          <DropdownMenuTrigger className="group inline-flex justify-center text-sm text-gray-700 hover:text-gray-900 ">
             Sort
             <ChevronDown className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500" />
           </DropdownMenuTrigger>
