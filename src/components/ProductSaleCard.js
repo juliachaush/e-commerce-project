@@ -5,6 +5,7 @@ import { ProductSkeleton } from "./ProductSkeleton";
 import { ImageWithButton } from "./ImageWithButton";
 
 const ProductSaleCard = ({ products }) => {
+  console.log("hhhhhhhhhh", products);
   return (
     <ul className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0">
       {products && products.length > 0

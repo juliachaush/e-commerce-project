@@ -6,15 +6,16 @@ import { PopupWithEmail } from "../components/PopupWithEmail";
 
 import { fetchSaleProducts } from "../lib/products";
 
-import mainPhoto from "../assets/main.jpg";
-import candles from "../assets/candles.webp";
-import plates from "../assets/plates.webp";
+import mainPotteryPhoto from "../assets/mainpottery.jpg";
+import soap from "../assets/soap.jpg";
+import plates from "../assets/plates.jpg";
 import bathroom from "../assets/bathroom.webp";
+import pottery from "../assets/pottery.jpg";
 import { ProductSaleCard } from "../components/ProductSaleCard";
 
 export default async function Home() {
   const products = await fetchSaleProducts();
-  console.log("products", products);
+
   return (
     <main>
       <div className="fixed top-0 left-0 w-full  z-10">
@@ -26,7 +27,7 @@ export default async function Home() {
       </div>
       <div className="relative w-screen h-screen">
         <Image
-          src={mainPhoto}
+          src={mainPotteryPhoto}
           alt="Photo wit candle"
           quality={100}
           className="lg:mt-50 object-cover w-full h-full"
@@ -37,7 +38,7 @@ export default async function Home() {
         <p>SPRING/SUMMER 2024</p>
       </div>
 
-      <div className=" container mx-auto max-w-80xl lg:mt-20">
+      <div className=" container mx-auto max-w-80xl mt-20 ">
         <p className=" uppercase flex justify-center font-bold ">sale</p>
         <ProductSaleCard products={products} />
       </div>
@@ -53,12 +54,12 @@ export default async function Home() {
           </p>
         </div>
         <Image
-          src={candles}
+          src={pottery}
           alt="Photo wit candle"
           width={400}
           height={400}
           quality={100}
-          className="mt-50"
+          className="mt-50 w-full h-full"
         />
         <Image
           src={plates}
@@ -66,14 +67,14 @@ export default async function Home() {
           width={400}
           height={400}
           quality={100}
-          className="mt-50"
+          className="mt-50 w-full h-full"
         />
       </div>
 
       <div className=" container mx-auto max-w-80xl grid  lg:col-span-2 lg:gap-10 md:gap-0  sm:gap-4 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 lg:grid-rows-2 lg:mt-20 lg:mb-20 ">
         <div className="lg:row-span-2  md:row-span-2  sm:row-span-3 col-span-1 bg-light-yellow p-20">
           <Image
-            src={bathroom}
+            src={soap}
             alt="Photo wit candle"
             width={600}
             height={600}

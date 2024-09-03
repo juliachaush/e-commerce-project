@@ -35,7 +35,9 @@ const SideCart = forwardRef(({ visible, onRequestClose }, ref) => {
     <div
       ref={ref}
       style={{ right: visible ? "0" : "-100%" }}
-      className="shadow-md transition-all w-96 bg-white min-h-screen fixed right-0 top-0 flex flex-col z-50"
+      className={`flex flex-col fixed top-0 right-0 min-h-screen w-96 bg-white shadow-lg transition-transform duration-300 ease-in-out z-50 ${
+        visible ? "translate-x-0" : "translate-x-full"
+      }`}
     >
       <div className="p-4 flex justify-between">
         <h1 className="font-semibold uppercase text-gray-600">Cart</h1>

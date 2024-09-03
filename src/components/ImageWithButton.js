@@ -22,7 +22,7 @@ function ImageWithButton({ src, alt, href, item, classes }) {
           alt={alt}
           width={200}
           height={200}
-          className={`rounded-lg w-full h-full object-cover ${classes}`}
+          className={` w-full h-full object-cover ${classes}`}
           priority={false}
         />
       </Link>

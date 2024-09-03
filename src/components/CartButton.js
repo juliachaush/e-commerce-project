@@ -49,6 +49,9 @@ function CartButton() {
         ref={sideCartRef}
         visible={showSideCart}
         onRequestClose={() => setShowSideCart(false)}
+        className={`fixed right-0 top-0 w-64 h-full bg-white shadow-lg transform ${
+          showSideCart ? "translate-x-0" : "translate-x-full"
+        } transition-transform lg:block sm:hidden`}
       />
     </>
   );
