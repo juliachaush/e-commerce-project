@@ -2,16 +2,12 @@
 
 import Image from "next/image";
 import { useEffect } from "react";
-
 import { Footer } from "./Footer";
 import { PopupWithEmail } from "./PopupWithEmail";
-
 import soap from "../assets/soap.jpg";
 import plates from "../assets/plates.jpg";
-
 import pottery from "../assets/pottery.jpg";
 import { ProductSaleCard } from "./ProductSaleCard";
-
 import { revealOnScroll } from "../lib/scrollEffects";
 
 export default function MainPageContent({ products }) {

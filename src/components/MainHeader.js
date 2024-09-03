@@ -18,7 +18,7 @@ function MainHeader({ path, linkName, logIn }) {
         <p>Free shipping from $50</p>
       </div>
       <div className="bg-white mb-2 border-b border-gray-950">
-        <div className=" container mx-auto max-w-95xl grid grid-cols-[1fr_1fr_1fr]  grid-row-1 bg-white text-black  tracking-widest">
+        <div className="  grid grid-cols-[1fr_1fr_1fr]  grid-row-1 bg-white text-black  tracking-widest pr-4">
           <div className="  column-start-1 row-start-1 list-none hidden md:flex  ">
             <div className="flex flex-row">
               {Object.keys(path).map((key) => (

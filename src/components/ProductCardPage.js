@@ -6,7 +6,7 @@ import { BUTTON_NAMES } from "@/src/lib/const";
 import { formatCurrency } from "@/src/lib/formatCurrency";
 import { Breadcrumbs } from "@/src/components/BreadCrumbs";
 import { useDispatch } from "react-redux";
-import { useCart, addToCart } from "../store/store";
+import { addToCart } from "../store/store";
 import { useState } from "react";
 
 const breadCrumbs = [
@@ -16,7 +16,6 @@ const breadCrumbs = [
 
 function ProductCardPage({ product }) {
   const dispatch = useDispatch();
-  const cart = useCart();
 
   const [quantity, setQuantity] = useState(0);
 
@@ -57,6 +56,7 @@ function ProductCardPage({ product }) {
             <div className="lg:mt-8 column-start-2">
               <h1 className="font-bold">{item.product_title}</h1>
               <p>{formatCurrency(item.product_price)}</p>
+              {item.sale_price ? <p>{formatCurrency(item.sale_price)}</p> : ""}
               <p>{item.product_description}</p>
               <p>{item.product_characteristics}</p>
               <div className="flex flex-row items-center ">
