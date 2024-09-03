@@ -2,7 +2,7 @@ import { fetchSaleProducts } from "../lib/products";
 import Image from "next/image";
 import mainPotteryPhoto from "../assets/mainpottery.jpg";
 import Wrapper from "../components/Wrapper";
-import MainPageContent from "../components/mainPageContent";
+import { MainPageContent } from "../components/MainPageContent";
 import { MainHeader } from "../components/MainHeader";
 
 export default async function Home() {

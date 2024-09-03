@@ -10,7 +10,7 @@ import pottery from "../assets/pottery.jpg";
 import { ProductSaleCard } from "./ProductSaleCard";
 import { revealOnScroll } from "../lib/scrollEffects";
 
-export default function MainPageContent({ products }) {
+export const MainPageContent = ({ products }) => {
   useEffect(() => {
     revealOnScroll();
   }, []);
@@ -78,4 +78,4 @@ export default function MainPageContent({ products }) {
       <Footer />
     </div>
   );
-}
+};
