@@ -6,7 +6,7 @@ import { ImageWithButton } from "./ImageWithButton";
 
 const ProductCards = ({ products }) => {
   return (
-    <ul className="lg:col-span-4 grid grid-cols-4 sm:grid-cols-2 md:grid-cols-4 ">
+    <ul className=" grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 ">
       {products && products.length > 0
         ? products.map((item) => (
             <li key={item.product_id} className="lg:p-1 md:w-full  mt-4 ">

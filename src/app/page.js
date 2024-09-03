@@ -34,7 +34,7 @@ export default async function Home() {
           priority
         />
       </div>
-      <div className="absolute inset-0 flex items-center text-white justify-center text-center tracking-widest ">
+      <div className="absolute inset-0 flex items-center text-black justify-center text-center tracking-widest ">
         <p>SPRING/SUMMER 2024</p>
       </div>
 

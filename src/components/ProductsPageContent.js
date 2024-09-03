@@ -64,7 +64,7 @@ function ProductsPageContent({ data }) {
 
   return (
     <>
-      <div className="flex justify-between">
+      <div className="flex justify-between  pl-4 pr-4">
         <Breadcrumbs breadCrumbs={breadCrumbs} />
         <DropdownMenu>
           <DropdownMenuTrigger className="group inline-flex justify-center text-sm text-gray-700 hover:text-gray-900 ">
