@@ -15,21 +15,20 @@ function ImageWithButton({ src, alt, href, item, classes }) {
   };
 
   return (
-    <div className="relative group">
-      <Link href={href}>
+    <div className="relative group w-86 h-96 overflow-hidden bg-white ">
+      <Link href={href} className="block w-full h-full relative">
         <Image
           src={src}
           alt={alt}
-          width={200}
-          height={200}
-          className={` w-full h-full object-cover ${classes}`}
+          layout="fill"
+          objectFit="cover"
           priority={false}
         />
       </Link>
 
       <Button
         onClick={() => handleAddToCart(item)}
-        className="bg-white text-gray-950 hover:bg-white absolute bottom-1 left-1/2 w-full h-10 transform -translate-x-1/2 -translate-y-1/2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 active:bg-light-yellow  "
+        className="bg-white text-gray-950 hover:bg-white absolute bottom-4 left-1/2 transform -translate-x-1/2 w-3/4 h-10 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 active:bg-light-yellow"
       >
         {BUTTON_NAMES.addToCartButton}
       </Button>
