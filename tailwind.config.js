@@ -44,6 +44,7 @@ module.exports = {
       },
       width: {
         96: "23rem",
+        55: "16rem",
       },
       keyframes: {
         "accordion-down": {

@@ -7,7 +7,7 @@ import { Button } from "./Button";
 import { addToCart } from "../store/store";
 import { useDispatch } from "react-redux";
 
-function ImageWithButton({ src, alt, href, item, classes }) {
+function ImageWithButton({ src, alt, href, item }) {
   const dispatch = useDispatch();
 
   const handleAddToCart = (product) => {
@@ -15,13 +15,17 @@ function ImageWithButton({ src, alt, href, item, classes }) {
   };
 
   return (
-    <div className="relative group  lg:overflow-hidden bg-white ">
-      <Link href={href} className="block  relative">
+    <div className="relative group">
+      {/* <div className="block relative w-96 h-112"> */}
+
+      <Link href={href} className=" block relativew-full h-112">
         <Image
           src={src}
           alt={alt}
-          width={2400}
-          height={2400}
+          fill
+          style={{ objectFit: "cover" }}
+          sizes="100%, 100%"
+          loading="lazy"
           priority={false}
         />
       </Link>
