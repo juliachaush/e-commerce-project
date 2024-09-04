@@ -1,12 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["oct4nzh6qckbwkjr.public.blob.vercel-storage.com"],
+    domains: [
+      "unsplash.com",
+      "oct4nzh6qckbwkjr.public.blob.vercel-storage.com",
+    ],
+    // domains: ["oct4nzh6qckbwkjr.public.blob.vercel-storage.com"],
     minimumCacheTTL: 0,
+
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "example.com",
+        hostname: "mages.unsplash.com",
         pathname: "/**",
       },
     ],
