@@ -23,12 +23,13 @@ export const cartSlice = createSlice({
 
       if (existingProduct) {
         existingProduct.quantity += action.payload.quantity;
-        existingProduct.sumByProduct =
-          existingProduct.product_price * existingProduct.quantity;
+        existingProduct.sumByProduct = existingProduct.sale_price
+          ? existingProduct.sale_price * existingProduct.quantity
+          : existingProduct.product_price * existingProduct.quantity;
       } else {
         state.products.push({
           ...item,
-          sumByProduct: item.product_price,
+          sumByProduct: item.sale_price ? item.sale_price : item.product_price,
         });
       }
 
@@ -55,7 +56,9 @@ export const cartSlice = createSlice({
           );
         } else {
           existingProduct.quantity -= 1;
-          existingProduct.sumByProduct -= item.product_price;
+          existingProduct.sumByProduct -= item.sale_price
+            ? item.sale_price
+            : item.product_price;
         }
       }
 
