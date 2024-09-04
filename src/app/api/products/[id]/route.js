@@ -1,7 +1,6 @@
 import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 
-//WORKING GET
 export async function GET(req) {
   const id = req.nextUrl.pathname.split("/").pop();
 

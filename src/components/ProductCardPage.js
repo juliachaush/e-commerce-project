@@ -46,7 +46,7 @@ function ProductCardPage({ product }) {
           >
             <div className="lg:mt-2column-start-1  w-full">
               <Image
-                src={item.image_url}
+                src={item.image_url ? item.image_url : undefined}
                 width={600}
                 height={600}
                 alt={item.product_title}
@@ -55,8 +55,14 @@ function ProductCardPage({ product }) {
             </div>
             <div className="lg:mt-8 column-start-2">
               <h1 className="font-bold">{item.product_title}</h1>
-              <p>{formatCurrency(item.product_price)}</p>
-              {item.sale_price ? <p>{formatCurrency(item.sale_price)}</p> : ""}
+
+              <p>
+                {formatCurrency(
+                  item.sale_status === true
+                    ? item.sale_price
+                    : item.product_price
+                )}
+              </p>
               <p>{item.product_description}</p>
               <p>{item.product_characteristics}</p>
               <div className="flex flex-row items-center ">

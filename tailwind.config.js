@@ -25,6 +25,25 @@ module.exports = {
         "dark-green": "#065F46",
         "light-yellow": "#e7e4da",
       },
+      screens: {
+        xxs: "320px",
+        xs: "480px",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
+        "3xl": "1920px",
+      },
+      maxWidth: {
+        "95xl": "95rem",
+      },
+      height: {
+        112: "28rem",
+      },
+      width: {
+        96: "23rem",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

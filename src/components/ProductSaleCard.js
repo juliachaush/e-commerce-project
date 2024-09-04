@@ -13,7 +13,7 @@ const ProductSaleCard = ({ products }) => {
             <li key={item.product_id} className="lg:p-1 md:w-full  mt-4 ">
               <ImageWithButton
                 item={item}
-                src={item.image_url}
+                src={item.image_url ? item.image_url : undefined}
                 alt={item.product_title}
                 href={`/products/${item.product_id}`}
               />

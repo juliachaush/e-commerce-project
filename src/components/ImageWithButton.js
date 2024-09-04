@@ -15,7 +15,7 @@ function ImageWithButton({ src, alt, href, item, classes }) {
   };
 
   return (
-    <div className="relative group w-86 h-96 overflow-hidden bg-white ">
+    <div className="relative group 3xl:w-96 3xl:h-112 2xl:w-96 2xl:h-112 w-86 h-96 lg: lg: overflow-hidden bg-white ">
       <Link href={href} className="block w-full h-full relative">
         <Image
           src={src}

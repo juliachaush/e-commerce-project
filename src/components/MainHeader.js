@@ -36,7 +36,7 @@ function MainHeader({ path, linkName, logIn }) {
           </div>
 
           <div className="column-start-2 sm:column-start-3 flex justify-end items-center row-start-1">
-            <div className="grid grid-cols-2 gap-2 items-center ">
+            <div className="grid grid-cols-2 gap-2 items-center text-sm">
               {logIn ? <Link href={logIn.path}>{logIn.name}</Link> : ""}
               <CartButton />
             </div>
