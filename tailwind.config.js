@@ -36,7 +36,8 @@ module.exports = {
         "3xl": "1920px",
       },
       maxWidth: {
-        "95xl": "95rem",
+        "90xl": "90rem",
+        "95xl": "120rem",
       },
       height: {
         112: "28rem",

@@ -1,5 +1,5 @@
 import { sql } from "@vercel/postgres";
-import { NextResponse } from "next/server";
+// import { NextResponse } from "next/server";
 
 export async function GET(req) {
   const id = req.nextUrl.pathname.split("/").pop();
@@ -12,6 +12,7 @@ export async function GET(req) {
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "no-store",
       },
     }
   );

@@ -46,7 +46,7 @@ function ProductCardPage({ product }) {
           >
             <div className="lg:mt-2column-start-1  w-full">
               <Image
-                src={item.image_url ? item.image_url : undefined}
+                src={item.image_url}
                 width={600}
                 height={600}
                 alt={item.product_title}
