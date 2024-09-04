@@ -5,7 +5,6 @@ import { ProductSkeleton } from "./ProductSkeleton";
 import { ImageWithButton } from "./ImageWithButton";
 
 const ProductSaleCard = ({ products }) => {
-  console.log("hhhhhhhhhh", products);
   return (
     <ul className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0">
       {products && products.length > 0
@@ -19,7 +18,12 @@ const ProductSaleCard = ({ products }) => {
               />
               <Link href={`/products/${item.product_id}`}>
                 <p>{item.product_title}</p>
-                <p className="pb-2 ">{formatCurrency(item.sale_price)}</p>
+                <p className="line-through">
+                  {formatCurrency(item.product_price)}
+                </p>
+                <p className="pb-2 font-bold text-red-700 ">
+                  {formatCurrency(item.sale_price)}
+                </p>
               </Link>
             </li>
           ))

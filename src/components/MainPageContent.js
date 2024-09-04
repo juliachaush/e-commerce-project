@@ -61,10 +61,8 @@ export const MainPageContent = ({ products }) => {
           />
         </div>
         <div>
-          <p className="text-lg">
-            We believe that beauty and integrity are one and the same.
-          </p>
-          <p className="text-lg">
+          <p>We believe that beauty and integrity are one and the same.</p>
+          <p>
             Advene is a New York City-based accessories brand with a new vision
             for responsible luxury.
           </p>
