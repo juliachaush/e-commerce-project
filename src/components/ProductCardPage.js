@@ -46,7 +46,7 @@ function ProductCardPage({ product }) {
           >
             <div className="lg:mt-2column-start-1  w-full">
               <Image
-                src={item.image_url}
+                src={item.image_url ? item.image_url : undefined}
                 width={600}
                 height={600}
                 alt={item.product_title}
@@ -71,7 +71,9 @@ function ProductCardPage({ product }) {
                 <Button onClick={handleIncriseQuantity}>+</Button>
               </div>
               <Button
-                onClick={() => handleAddToCart(item, quantity)}
+                onClick={() =>
+                  handleAddToCart(item, quantity > 1 ? quantity : 1)
+                }
                 className={
                   "mt-8 border  border-gray-950 text-gray-950 pt-4 pb-4 pl-8 pr-8"
                 }

@@ -15,13 +15,13 @@ function ImageWithButton({ src, alt, href, item, classes }) {
   };
 
   return (
-    <div className="relative group   lg: overflow-hidden bg-white ">
-      <Link href={href} className="block w-full h-full relative">
+    <div className="relative group  lg:overflow-hidden bg-white ">
+      <Link href={href} className="block  relative">
         <Image
           src={src}
           alt={alt}
-          width={1200}
-          height={1200}
+          width={2400}
+          height={2400}
           priority={false}
         />
       </Link>
