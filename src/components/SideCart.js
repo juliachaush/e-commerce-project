@@ -71,8 +71,6 @@ const SideCart = forwardRef(({ visible, onRequestClose }, ref) => {
                   <div className="flex-1">
                     <h2 className="font-semibold">{item.product_title}</h2>
                     <div className="flex text-gray-400 text-sm space-x-1">
-                      <span>{item.quantity}</span>
-                      <span>x</span>
                       <span>{formatCurrency(item.sumByProduct)}</span>
                     </div>
                   </div>
