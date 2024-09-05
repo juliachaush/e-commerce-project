@@ -40,19 +40,40 @@ function ProductsPageContent({ data }) {
       ...prev,
       sort: value,
     }));
-
     if (value === SORT_VALUES.priceAsc) {
-      const sortedProducts = [...products].sort(
-        (product1, product2) => product1.product_price - product2.product_price
-      );
+      const sortedProducts = [...products].sort((product1, product2) => {
+        if (product1.sale_price > 0 && product2.sale_price > 0) {
+          return product1.sale_price - product2.sale_price;
+        }
+        if (product1.sale_price > 0 && product2.sale_price <= 0) {
+          return product1.sale_price - product2.product_price;
+        }
+        if (product1.sale_price <= 0 && product2.sale_price > 0) {
+          return product1.product_price - product2.sale_price;
+        }
+        if (product1.sale_price <= 0 && product2.sale_price <= 0) {
+          return product1.product_price - product2.product_price;
+        }
+      });
       setProducts(sortedProducts);
       return;
     }
 
     if (value === SORT_VALUES.priceDesc) {
-      const sortedProducts = [...products].sort(
-        (product1, product2) => product2.product_price - product1.product_price
-      );
+      const sortedProducts = [...products].sort((product1, product2) => {
+        if (product2.sale_price > 0 && product1.sale_price > 0) {
+          return product2.sale_price - product1.sale_price;
+        }
+        if (product2.sale_price > 0 && product1.sale_price <= 0) {
+          return product2.sale_price - product1.product_price;
+        }
+        if (product2.sale_price <= 0 && product1.sale_price > 0) {
+          return product2.product_price - product1.sale_price;
+        }
+        if (product2.sale_price <= 0 && product1.sale_price <= 0) {
+          return product2.product_price - product1.product_price;
+        }
+      });
       setProducts(sortedProducts);
       return;
     }
