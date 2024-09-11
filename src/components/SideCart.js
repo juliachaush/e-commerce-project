@@ -16,6 +16,7 @@ const SideCart = forwardRef(({ visible, onRequestClose }, ref) => {
   const cart = useCart();
 
   const handleAddToCart = (product, quantity) => {
+    console.log("Adding to cart:", product, quantity);
     dispatch(addToCart({ ...product, quantity: 1 }));
   };
 

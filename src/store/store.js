@@ -16,23 +16,26 @@ export const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const item = action.payload;
+      console.log("dkdkdkdk", action.payload);
 
       const existingProduct = state.products.find(
         (p) => p.product_id === item.product_id
       );
 
       if (existingProduct) {
-        existingProduct.quantity += action.payload.quantity;
-        if (existingProduct.sale_price > 0) {
-          existingProduct.sumByProduct =
-            existingProduct.sale_price * existingProduct.quantity;
-        }
-        existingProduct.product_price * existingProduct.quantity;
+        existingProduct.quantity += item.quantity;
+
+        existingProduct.sumByProduct =
+          (existingProduct.sale_price > 0
+            ? existingProduct.sale_price
+            : existingProduct.product_price) * existingProduct.quantity;
       } else {
         state.products.push({
           ...item,
+          quantity: item.quantity,
           sumByProduct:
-            item.sale_price > 0 ? item.sale_price : item.product_price,
+            (item.sale_price > 0 ? item.sale_price : item.product_price) *
+            item.quantity,
         });
       }
 
@@ -40,10 +43,14 @@ export const cartSlice = createSlice({
         (acc, p) => acc + (p.quantity || 0),
         0
       );
-      state.totalPrice = state.products.reduce(
-        (acc, p) => acc + p.product_price * (p.quantity || 0),
-        0
-      );
+
+      state.totalPrice = state.products.reduce((acc, p) => {
+        return (
+          acc +
+          (p.sale_price > 0 ? p.sale_price : p.product_price) *
+            (p.quantity || 0)
+        );
+      }, 0);
     },
 
     removeFromCart: (state, action) => {

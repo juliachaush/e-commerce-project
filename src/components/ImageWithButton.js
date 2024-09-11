@@ -24,7 +24,7 @@ function ImageWithButton({ src, alt, href, item }) {
           alt={alt}
           fill
           style={{ objectFit: "cover" }}
-          sizes="100%, 100%"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           loading="lazy"
           priority={false}
         />

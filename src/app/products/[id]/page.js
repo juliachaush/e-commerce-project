@@ -119,7 +119,6 @@ export default async function ProductPage({ params, onClick }) {
   const { id } = params;
 
   const product = await fetchProductById(id);
-  console.log("productfjdfjfjf", product);
 
   if (!product) {
     return <div>Product not found</div>;
