@@ -16,7 +16,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-l border-gray-950  md:border-l lg:border-l  " />
-        <div className=" column-start-2 row-start-1  mt-4  ">
+        <div className=" column-start-2 row-start-1 ">
           <h2 className="mb-4">STAY IN THE LOOP</h2>
           <p className="mb-2">
             Subscribe to receive free shipping on your next order (and the

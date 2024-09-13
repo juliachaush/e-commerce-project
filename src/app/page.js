@@ -3,7 +3,6 @@ import Image from "next/image";
 import mainPotteryPhoto from "../assets/mainpottery.jpg";
 import Wrapper from "../components/Wrapper";
 import { MainPageContent } from "../components/MainPageContent";
-import { MainHeader } from "../components/MainHeader";
 
 export default async function Home() {
   const products = await fetchSaleProducts();
@@ -11,13 +10,6 @@ export default async function Home() {
   return (
     <main>
       <Wrapper>
-        <div className="fixed top-0 left-0 w-full  z-10 ">
-          <MainHeader
-            path={{ products: "/products", contacts: "/contacts" }}
-            linkName={{ products: "Catalog", contacts: "About us" }}
-            logIn={{ path: "/login", name: "Log In" }}
-          />
-        </div>
         <div className="relative w-screen h-screen">
           <Image
             src={mainPotteryPhoto}
