@@ -31,7 +31,7 @@ function PopupWithEmail() {
           &times;
         </Button>
 
-        <div className="mt-4 mr-8 ">
+        <div>
           <h2 className="mb-4">STAY IN THE LOOP</h2>
           <p className="mb-2">
             Subscribe to receive free shipping on your next order (and the
