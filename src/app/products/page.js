@@ -1,4 +1,4 @@
-import { fetchProducts } from "@/src/lib/products";
+import fetchProducts from "@/src/services/fetchProducts";
 
 import { MainHeader } from "../../components/MainHeader";
 import { Footer } from "@/src/components/Footer";

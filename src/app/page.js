@@ -1,4 +1,4 @@
-import { fetchSaleProducts } from "../lib/products";
+import fetchSaleProducts from "../services/fetchSaleProducts";
 import Image from "next/image";
 import mainPotteryPhoto from "../assets/mainpottery.jpg";
 import Wrapper from "../components/Wrapper";
