@@ -34,7 +34,7 @@ const SortDropdown = ({ products, initialProducts }) => {
 
     if (value === SORT_VALUES.priceAsc) {
       const sortedProducts = [...filterProducts].sort(
-        (product1, product2) => product1.product_price - product2.product_price
+        (product1, product2) => product1.product_price - product2.product_price,
       );
       setFilterProducts(sortedProducts);
       return;
@@ -42,7 +42,7 @@ const SortDropdown = ({ products, initialProducts }) => {
 
     if (value === SORT_VALUES.priceDesc) {
       const sortedProducts = [...filterProducts].sort(
-        (product1, product2) => product2.product_price - product1.product_price
+        (product1, product2) => product2.product_price - product1.product_price,
       );
       setFilterProducts(sortedProducts);
       return;

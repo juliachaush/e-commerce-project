@@ -1,7 +1,7 @@
 export const loadState = () => {
   try {
     const serializedState = localStorage.getItem("cart");
-    if (serializedState === null) {
+    if (!serializedState) {
       return undefined;
     }
     const parsedState = JSON.parse(serializedState);

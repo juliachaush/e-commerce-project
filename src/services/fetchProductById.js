@@ -10,14 +10,14 @@ const fetchProductById = async (id) => {
       }
     );
     if (!response.ok) {
-      throw new Error(`Ошибка: ${response.status}`);
+      throw new Error(`Error: ${response.status}`);
     }
 
     const data = await response.json();
 
     return data;
   } catch (error) {
-    console.error("Ошибка при запросе:", error);
+    console.error("Error during request:", error);
   }
 };
 

@@ -1,3 +1,51 @@
 {
   "extends": "next/core-web-vitals"
+  // "rules": {
+  //   "max-len": ["error", { "code": 80 }]
+  // }
 }
+
+// {
+//   "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+//   "rules": {
+//     "prettier/prettier": ["error", { "printWidth": 120 }]
+//   }
+// }
+
+// {
+//   "extends": ["next/core-web-vitals"],
+//   "rules": {
+//     "max-len": [
+//       "error",
+//       { "code": 120, "ignoreUrls": true, "ignoreComments": true }
+//     ]
+//   }
+// }
+
+// {
+//   "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+//   "rules": {
+//     "prettier/prettier": [
+//       "error",
+//       {
+//         "printWidth": 120, // Максимальна довжина рядка
+//         "singleQuote": true, // Використовувати одинарні лапки
+//         "trailingComma": "all", // Додавати коми в кінці елементів у масивах, об'єктах
+//         "semi": false, // Вимкнути використання крапки з комою
+//         "tabWidth": 2, // Кількість пробілів для табуляції
+//         "useTabs": false, // Використовувати пробіли замість табуляції
+//         "bracketSpacing": true, // Пробіли між фігурними дужками
+//         "jsxBracketSameLine": true // Закриваюча дужка на тій самій лінії для JSX
+//       }
+//     ],
+//     "max-len": [
+//       "warn",
+//       {
+//         "code": 120, // Лінійна довжина коду
+//         "tabWidth": 2,
+//         "ignoreUrls": true, // Не перевіряти URL-адреси на довжину
+//         "ignoreStrings": true // Не перевіряти рядки на довжину
+//       }
+//     ]
+//   }
+// }

@@ -8,14 +8,14 @@ export async function POST(req) {
       JSON.stringify({ error: "Please write your email adress" }),
       {
         status: 400,
-      }
+      },
     );
   }
 
   try {
     const result = await sql.query(
       "INSERT INTO users(email) VALUES($1) RETURNING *",
-      [email]
+      [email],
     );
 
     return new Response(
@@ -23,7 +23,7 @@ export async function POST(req) {
         message: "Email saved successfully",
         data: result.rows[0],
       }),
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     console.error("Database error:", error);

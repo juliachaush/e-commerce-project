@@ -22,11 +22,11 @@ const Input = () => {
 
       const data = await response.json();
 
-      if (response.ok) {
+      if (!response.ok) {
+        setMessage(data.error || "Something went wrong");
+      } else {
         setMessage(data.message);
         setEmail("");
-      } else {
-        setMessage(data.error || "Something went wrong");
       }
     } catch (error) {
       setMessage("An unexpected error occurred");

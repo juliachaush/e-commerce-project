@@ -6,7 +6,7 @@ import { BUTTON_NAMES } from "@/src/lib/const";
 import { formatCurrency } from "@/src/lib/formatCurrency";
 import { Breadcrumbs } from "@/src/components/BreadCrumbs";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../store/store";
+import { addToCart } from "../features/cart/cartSlice";
 import { useState } from "react";
 
 const breadCrumbs = [
@@ -72,7 +72,7 @@ function ProductCardPage({ product }) {
               </div>
               <Button
                 onClick={() =>
-                  handleAddToCart(item, quantity > 1 ? quantity : 1)
+                  handleAddToCart(item, quantity > 0 ? quantity : 0)
                 }
                 className={
                   "mt-8 border  border-gray-950 text-gray-950 pt-4 pb-4 pl-8 pr-8"

@@ -29,7 +29,7 @@ const ProductCards = ({ products }) => {
                     {formatCurrency(
                       item.sale_status === true
                         ? item.sale_price
-                        : item.product_price
+                        : item.product_price,
                     )}
                   </p>
                 </Link>

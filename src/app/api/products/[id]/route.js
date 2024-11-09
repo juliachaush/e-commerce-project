@@ -14,6 +14,6 @@ export async function GET(req) {
         "Access-Control-Allow-Origin": "*",
         "Cache-Control": "no-store",
       },
-    }
+    },
   );
 }

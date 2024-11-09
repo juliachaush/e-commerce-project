@@ -4,20 +4,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { BUTTON_NAMES } from "../lib/const";
 import { Button } from "./Button";
-import { addToCart } from "../store/store";
+import { addToCart } from "../features/cart/cartSlice";
 import { useDispatch } from "react-redux";
 
 function ImageWithButton({ src, alt, href, item }) {
   const dispatch = useDispatch();
 
   const handleAddToCart = (product) => {
+    console.log("handleAddToCart", product);
     dispatch(addToCart({ ...product, quantity: 1 }));
   };
 
   return (
     <div className="relative group">
-      {/* <div className="block relative w-96 h-112"> */}
-
       <Link href={href} className=" block relativew-full h-112">
         <Image
           src={src}
