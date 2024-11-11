@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { forwardRef, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import {
@@ -8,58 +7,38 @@ import {
   clearCart,
   removeItemFromCart,
 } from "../features/cart/cartSlice";
-import { formatCurrency } from "../lib/formatCurrency";
 import { Button } from "./Button";
+import { CartItem } from "./CartItem";
+import { CartFooter } from "./CartFooter";
 
 const SideCart = forwardRef(({ visible, onRequestClose }, ref) => {
   const dispatch = useDispatch();
   const cart = useCart();
-  console.log("cart", cart);
 
-  const handleAddToCart = (product, quantity) => {
-    dispatch(addToCart({ ...product, quantity: 1 }));
-  };
+  const handleAddToCart = useCallback(
+    (product) => {
+      dispatch(addToCart({ ...product, quantity: 1 }));
+    },
+    [dispatch]
+  );
 
-  const handleRemoveFromCart = (product) => {
-    dispatch(removeFromCart(product));
-  };
+  const handleRemoveFromCart = useCallback(
+    (product) => {
+      dispatch(removeFromCart(product));
+    },
+    [dispatch]
+  );
 
-  const handleRemoveItemFromCart = (product) => {
-    dispatch(removeItemFromCart(product));
-  };
+  const handleRemoveItemFromCart = useCallback(
+    (product) => {
+      dispatch(removeItemFromCart(product));
+    },
+    [dispatch]
+  );
 
-  const handleClearCart = () => {
+  const handleClearCart = useCallback(() => {
     dispatch(clearCart());
-  };
-
-  // const handleAddToCart = useCallback(
-  //   (product) => {
-  //     console.log("Adding to cart:", product);
-  //     dispatch(addToCart({ ...product, quantity: 1 }));
-  //   },
-  //   [dispatch]
-  // );
-
-  // const handleRemoveFromCart = useCallback(
-  //   (product) => {
-  //     dispatch(removeFromCart(product));
-  //   },
-  //   [dispatch]
-  // );
-
-  // const handleRemoveItemFromCart = useCallback(
-  //   (product) => {
-  //     dispatch(removeItemFromCart(product));
-  //   },
-  //   [dispatch]
-  // );
-
-  // const handleClearCart = useCallback(() => {
-  //   dispatch(clearCart());
-  // }, [dispatch]);
-
-  // const products = cart || [];
-  // console.log(products);
+  }, [dispatch]);
 
   return (
     <div
@@ -73,13 +52,13 @@ const SideCart = forwardRef(({ visible, onRequestClose }, ref) => {
         <h1 className="font-semibold uppercase text-gray-600">Cart</h1>
         <Button
           onClick={onRequestClose}
+          aria-label="Close Cart"
           className="outline-none text-xs uppercase hover:underline"
         >
           Close
         </Button>
       </div>
       <div className="w-full h-0.5 bg-gray-200" />
-
       <ul>
         {cart?.products?.length === 0 ? (
           <p className="flex justify-center p-4">
@@ -87,65 +66,21 @@ const SideCart = forwardRef(({ visible, onRequestClose }, ref) => {
           </p>
         ) : (
           cart?.products?.map((item) => (
-            <li key={item.product_id}>
-              <div className="p-4">
-                <div className="flex space-x-4">
-                  <Image
-                    src={item.image_url}
-                    alt={item.product_title}
-                    width={100}
-                    height={100}
-                    className="w-16 aspect-square rounded object-cover"
-                  />
-                  <div className="flex-1">
-                    <h2 className="font-semibold">{item.product_title}</h2>
-                    <div className="flex text-gray-400 text-sm space-x-1">
-                      <span>{formatCurrency(item.sumByProduct)}</span>
-                    </div>
-                  </div>
-
-                  <div className="ml-auto">
-                    <Button
-                      onClick={() => handleRemoveItemFromCart(item)}
-                      className="text-xs uppercase hover:underline"
-                    >
-                      Remove
-                    </Button>
-
-                    <div className="flex items-center justify-between">
-                      <Button onClick={() => handleRemoveFromCart(item)}>
-                        -
-                      </Button>
-                      <span className="text-xs">{item.quantity}</span>
-                      <Button onClick={() => handleAddToCart(item)}>+</Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
+            <CartItem
+              key={item.product_id}
+              item={item}
+              onAdd={handleAddToCart}
+              onRemove={handleRemoveFromCart}
+              onRemoveItem={handleRemoveItemFromCart}
+            />
           ))
         )}
       </ul>
-
       <div className="w-full h-0.5 bg-gray-200" />
       <Button onClick={handleClearCart} className="uppercase text-sm">
         Clear cart
       </Button>
-      <div className="mt-auto p-4">
-        <div className=" flex justify-between py-4">
-          <h1 className="font-semibold text-xl uppercase">Total</h1>
-          <h1 className="font-semibold text-xl uppercase">
-            ${cart?.totalPrice}
-          </h1>
-        </div>
-        <p className="font-normal text-sm mb-2 text-gray-500">
-          Taxes and shipping calculated at checkout
-        </p>
-
-        <Button className="border-2 border-gray-950 py-2 w-full rounded text-gray-950 uppercase">
-          Checkout
-        </Button>
-      </div>
+      <CartFooter totalPrice={cart?.totalPrice} />
     </div>
   );
 });
