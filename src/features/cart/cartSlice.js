@@ -13,6 +13,7 @@ export const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const item = action.payload;
+      console.log("item", item);
 
       let salePrice = Number(item.sale_price);
 

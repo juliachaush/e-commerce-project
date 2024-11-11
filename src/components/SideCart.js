@@ -14,6 +14,7 @@ import { Button } from "./Button";
 const SideCart = forwardRef(({ visible, onRequestClose }, ref) => {
   const dispatch = useDispatch();
   const cart = useCart();
+  console.log("cart", cart);
 
   const handleAddToCart = (product, quantity) => {
     dispatch(addToCart({ ...product, quantity: 1 }));
