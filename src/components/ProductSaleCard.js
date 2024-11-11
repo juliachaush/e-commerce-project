@@ -5,10 +5,12 @@ import { ProductSkeleton } from "./ProductSkeleton";
 import { ImageWithButton } from "./ImageWithButton";
 
 const ProductSaleCard = ({ products }) => {
+  const isLoading = !products || products.length === 0;
   return (
     <ul className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0">
-      {products && products.length > 0
-        ? products.map((item) => (
+      {isLoading
+        ? new Array(5).fill(null).map((_, i) => <ProductSkeleton key={i} />)
+        : products.map((item) => (
             <li key={item.product_id} className="lg:p-1 md:w-full  mt-4 ">
               <ImageWithButton
                 item={item}
@@ -26,8 +28,7 @@ const ProductSaleCard = ({ products }) => {
                 </p>
               </Link>
             </li>
-          ))
-        : new Array(5).fill(null).map((_, i) => <ProductSkeleton key={i} />)}
+          ))}
     </ul>
   );
 };
