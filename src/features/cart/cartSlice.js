@@ -13,10 +13,8 @@ export const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const item = action.payload;
-      console.log("item from addToCart reducer", item);
 
       let salePrice = Number(item.sale_price);
-      console.log("salePrice", salePrice);
 
       const existingProduct = state.products?.find(
         (p) => p.product_id === item.product_id

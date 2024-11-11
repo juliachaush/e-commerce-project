@@ -11,21 +11,21 @@ function ImageWithButton({ src, alt, href, item }) {
   const dispatch = useDispatch();
 
   const handleAddToCart = (product) => {
-    console.log("handleAddToCart", product);
     dispatch(addToCart({ ...product, quantity: 1 }));
   };
 
   return (
     <div className="relative group">
-      <Link href={href} className=" block relativew-full h-112">
+      <Link prefetch={true} href={href} className=" block relativew-full h-112">
         <Image
           src={src}
           alt={alt}
           fill
           style={{ objectFit: "cover" }}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          loading="lazy"
-          priority={false}
+          // loading="lazy"
+          priority={true}
+          quality={65}
         />
       </Link>
 

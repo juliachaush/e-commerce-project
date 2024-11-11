@@ -3,6 +3,7 @@ import fetchProducts from "@/src/services/fetchProducts";
 import { Footer } from "@/src/components/Footer";
 import { ProductsPageContent } from "@/src/components/ProductsPageContent";
 import Wrapper from "@/src/components/Wrapper";
+import { Suspense } from "react";
 
 export default async function ProductsPage() {
   const products = await fetchProducts();
@@ -10,6 +11,7 @@ export default async function ProductsPage() {
   return (
     <Wrapper>
       <ProductsPageContent data={products} />
+
       <Footer />
     </Wrapper>
   );

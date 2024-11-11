@@ -3,6 +3,7 @@ import Link from "next/link";
 import { formatCurrency } from "../lib/formatCurrency";
 import { ProductSkeleton } from "./ProductSkeleton";
 import { ImageWithButton } from "./ImageWithButton";
+import { Suspense } from "react";
 
 const ProductCards = ({ products }) => {
   return (
@@ -16,8 +17,9 @@ const ProductCards = ({ products }) => {
                 alt={item.product_title}
                 href={`/products/${item.product_id}`}
               />
+
               <div className=" ">
-                <Link href={`/products/${item.product_id}`}>
+                <Link prefetch={true} href={`/products/${item.product_id}`}>
                   <p>{item.product_title}</p>
                   <p
                     className={`pb-2 ${
@@ -29,7 +31,7 @@ const ProductCards = ({ products }) => {
                     {formatCurrency(
                       item.sale_status === true
                         ? item.sale_price
-                        : item.product_price,
+                        : item.product_price
                     )}
                   </p>
                 </Link>

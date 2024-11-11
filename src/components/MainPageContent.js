@@ -4,9 +4,6 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { Footer } from "./Footer";
 import { PopupWithEmail } from "./PopupWithEmail";
-import soap from "../assets/soap.jpg";
-import plates from "../assets/plates.jpg";
-import pottery from "../assets/pottery.jpg";
 import { ProductSaleCard } from "./ProductSaleCard";
 import { revealOnScroll } from "../lib/scrollEffects";
 
@@ -32,32 +29,35 @@ export const MainPageContent = ({ products }) => {
           </p>
         </div>
         <Image
-          src={pottery}
+          src="/pottery.jpg"
           alt="Photo wit candle"
           width={400}
           height={400}
-          quality={100}
-          className="mt-50 w-full h-full reveal-on-scroll transition-opacity opacity-0 "
+          quality={65}
+          loading="lazy"
+          className="mt-50 w-full h-full reveal-on-scroll  "
         />
         <Image
-          src={plates}
+          src="/plates.jpg"
           alt="Photo wit candle"
           width={400}
           height={400}
-          quality={100}
-          className="mt-50 w-full h-full reveal-on-scroll transition-opacity opacity-0"
+          quality={65}
+          loading="lazy"
+          className="mt-50 w-full h-full reveal-on-scroll "
         />
       </div>
 
       <div className=" container mx-auto max-w-80xl grid  lg:col-span-2 lg:gap-10 md:gap-0  sm:gap-4 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 lg:grid-rows-2 lg:mt-20 lg:mb-20 ">
         <div className="lg:row-span-2  md:row-span-2  sm:row-span-3 col-span-1 bg-light-yellow p-20">
           <Image
-            src={soap}
+            src="/soap.jpg"
             alt="Photo wit candle"
             width={600}
             height={600}
-            quality={100}
-            className="mt-50 row-span-2 reveal-on-scroll transition-opacity opacity-0 "
+            quality={65}
+            loading="lazy"
+            className="mt-50 row-span-2 reveal-on-scroll "
           />
         </div>
         <div>
