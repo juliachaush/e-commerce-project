@@ -2,17 +2,20 @@
 
 import { useState, useEffect, useRef } from "react";
 import { ProductCards } from "@/src/components/ProductCard";
-
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/src/components/DropdownMenu";
-import { ChevronDown, Filter } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Breadcrumbs } from "@/src/components/BreadCrumbs";
-import { SORT_OPTIONS } from "@/src/lib/const";
+import { SORT_OPTIONS, SORT_VALUES } from "@/src/lib/const";
 import { cn } from "@/src/lib/utils";
-import { SORT_VALUES } from "@/src/lib/const";
+import {
+  sortByPriceAsc,
+  sortByPriceDesc,
+  sortByNone,
+} from "@/src/lib/sortFunctions";
 
 const breadCrumbs = [{ name: "home", url: "/" }];
 
@@ -35,60 +38,31 @@ function ProductsPageContent({ data }) {
   if (data.length === 0) {
     return <p>No products available.</p>;
   }
+
   function handleClick(value) {
     setFilter((prev) => ({
       ...prev,
       sort: value,
     }));
+
+    let sortedProducts;
     if (value === SORT_VALUES.priceAsc) {
-      const sortedProducts = [...products].sort((product1, product2) => {
-        if (product1.sale_price > 0 && product2.sale_price > 0) {
-          return product1.sale_price - product2.sale_price;
-        }
-        if (product1.sale_price > 0 && product2.sale_price <= 0) {
-          return product1.sale_price - product2.product_price;
-        }
-        if (product1.sale_price <= 0 && product2.sale_price > 0) {
-          return product1.product_price - product2.sale_price;
-        }
-        if (product1.sale_price <= 0 && product2.sale_price <= 0) {
-          return product1.product_price - product2.product_price;
-        }
-      });
-      setProducts(sortedProducts);
-      return;
+      sortedProducts = [...products].sort(sortByPriceAsc);
+    } else if (value === SORT_VALUES.priceDesc) {
+      sortedProducts = [...products].sort(sortByPriceDesc);
+    } else {
+      sortedProducts = sortByNone(initialProducts.current);
     }
 
-    if (value === SORT_VALUES.priceDesc) {
-      const sortedProducts = [...products].sort((product1, product2) => {
-        if (product2.sale_price > 0 && product1.sale_price > 0) {
-          return product2.sale_price - product1.sale_price;
-        }
-        if (product2.sale_price > 0 && product1.sale_price <= 0) {
-          return product2.sale_price - product1.product_price;
-        }
-        if (product2.sale_price <= 0 && product1.sale_price > 0) {
-          return product2.product_price - product1.sale_price;
-        }
-        if (product2.sale_price <= 0 && product1.sale_price <= 0) {
-          return product2.product_price - product1.product_price;
-        }
-      });
-      setProducts(sortedProducts);
-      return;
-    }
-
-    if (value === SORT_VALUES.priceNone) {
-      setProducts(initialProducts.current);
-    }
+    setProducts(sortedProducts);
   }
 
   return (
     <>
-      <div className="flex justify-between  pl-4 pr-4">
+      <div className="flex justify-between pl-4 pr-4 pt-24">
         <Breadcrumbs breadCrumbs={breadCrumbs} />
         <DropdownMenu>
-          <DropdownMenuTrigger className="group inline-flex justify-center text-sm text-gray-700 hover:text-gray-900 ">
+          <DropdownMenuTrigger className="group inline-flex justify-center text-sm text-gray-700 hover:text-gray-900">
             Sort
             <ChevronDown className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500" />
           </DropdownMenuTrigger>
@@ -114,4 +88,5 @@ function ProductsPageContent({ data }) {
     </>
   );
 }
+
 export { ProductsPageContent };
