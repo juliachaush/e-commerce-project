@@ -16,50 +16,31 @@ const SideCart = forwardRef(({ visible, onRequestClose }, ref) => {
   const cart = useCart();
   console.log("cart", cart);
 
-  const handleAddToCart = (product, quantity) => {
-    dispatch(addToCart({ ...product, quantity: 1 }));
-  };
+  const handleAddToCart = useCallback(
+    (product) => {
+      console.log("Adding to cart:", product);
+      dispatch(addToCart({ ...product, quantity: 1 }));
+    },
+    [dispatch]
+  );
 
-  const handleRemoveFromCart = (product) => {
-    dispatch(removeFromCart(product));
-  };
+  const handleRemoveFromCart = useCallback(
+    (product) => {
+      dispatch(removeFromCart(product));
+    },
+    [dispatch]
+  );
 
-  const handleRemoveItemFromCart = (product) => {
-    dispatch(removeItemFromCart(product));
-  };
+  const handleRemoveItemFromCart = useCallback(
+    (product) => {
+      dispatch(removeItemFromCart(product));
+    },
+    [dispatch]
+  );
 
-  const handleClearCart = () => {
+  const handleClearCart = useCallback(() => {
     dispatch(clearCart());
-  };
-
-  // const handleAddToCart = useCallback(
-  //   (product) => {
-  //     console.log("Adding to cart:", product);
-  //     dispatch(addToCart({ ...product, quantity: 1 }));
-  //   },
-  //   [dispatch]
-  // );
-
-  // const handleRemoveFromCart = useCallback(
-  //   (product) => {
-  //     dispatch(removeFromCart(product));
-  //   },
-  //   [dispatch]
-  // );
-
-  // const handleRemoveItemFromCart = useCallback(
-  //   (product) => {
-  //     dispatch(removeItemFromCart(product));
-  //   },
-  //   [dispatch]
-  // );
-
-  // const handleClearCart = useCallback(() => {
-  //   dispatch(clearCart());
-  // }, [dispatch]);
-
-  // const products = cart || [];
-  // console.log(products);
+  }, [dispatch]);
 
   return (
     <div
